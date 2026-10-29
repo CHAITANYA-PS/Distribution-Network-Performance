@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dsphere Distributor Operations Management Platform" />
+  <title>Dsphere | Distributor Operations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="health">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <nav id="mainNav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer"><span class="status-dot"></span> Local data enabled</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <a class="brand header-brand" href="index.html" aria-label="Dsphere dashboard">
+          <img src="assets/dsphere-logo.png" alt="Dsphere logo" />
+          <span><strong>Dsphere</strong><small>Distributor Operations Management Platform</small></span>
+        </a>
+        <div class="search-wrap"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search distributors, alerts, reports..." /></div>
+        <div class="header-actions">
+          <button class="icon-button" id="notifyButton" aria-label="Notifications">🔔<span class="badge" id="notifyCount">0</span></button>
+          <div class="profile"><span class="avatar">AS</span><span><strong>Sales Manager</strong><small>Chennai Region</small></span></div>  <a
+        class="logout-button"
+        href="../index.html"
+        title="Logout from Dsphere"
+        </span>
+
+        <span class="logout-text">
+          Logout
+        </span>
+      </a>
+
+        </div>
+      </header>
+      <section id="app" class="content" aria-live="polite"></section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="modal" class="modal" aria-hidden="true"><div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div id="modalBody"></div></div></div>
+  <script src="validation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

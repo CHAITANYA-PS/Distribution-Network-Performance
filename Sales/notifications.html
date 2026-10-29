@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <title>Notifications | Dsphere</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="auth-check.js"></script>
+</head>
+
+<body data-section="notifications">
+  <div class="app-shell">
+    <header class="topbar">
+      <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="sidebar"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <a class="brand" href="dashboard-overview.html" aria-label="Go to dashboard overview">
+        <img class="brand-logo" src="assets/dsphere-logo.png" alt="Dsphere logo">
+        <span>
+          <b>Dsphere</b>
+          <small>Distributor Operations Management Platform</small>
+        </span>
+      </a>
+
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          id="globalSearch"
+          type="search"
+          placeholder="Search notifications, tickets, disputes..."
+          aria-label="Search Sales Manager workspace"
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="header-actions profile">
+        <button
+          class="notification-button"
+          id="notificationBell"
+          type="button"
+          title="Open recent notifications"
+          aria-label="Open recent notifications"
+          aria-haspopup="dialog"
+          aria-controls="notificationModal"
+        >
+          🔔
+          <i class="notification-badge" id="notificationCount">8</i>
+        </button>
+
+        <span class="avatar" data-avatar title="Sales Manager">SM</span>
+
+        <span class="profile-info">
+          <strong data-user-name>Sales Manager</strong>
+          <small data-user-role>Sales &amp; Resolution</small>
+        </span>
+
+        <button class="logout-button" id="logoutButton" type="button" title="Logout from Dsphere">
+          <span class="logout-icon" aria-hidden="true">↪</span>
+          <span class="logout-text">Logout</span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <nav id="mainNav" class="side-nav" aria-label="Sales Manager navigation"></nav>
+
+      <div class="side-foot">
+        <span class="status-dot"></span>System Online<br>
+        Sales Manager Portal<br>
+        Version 1.0.0<br>
+        © 2026 Dsphere
+      </div>
+    </aside>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main class="main">
+      <div class="content">
+        <section class="page-head">
+          <div>
+            <p class="eyebrow">Sales Message Center</p>
+            <h1>Notifications</h1>
+            <p class="page-description">
+              Review recovery cases, exception tickets, disputes, SLA alerts and resolution updates.
+            </p>
+          </div>
+
+          <div class="page-actions">
+            <button class="primary-button" id="heroUnreadCount" type="button">
+              8 unread notifications
+            </button>
+          </div>
+        </section>
+
+        <section class="stats" aria-label="Notification summary">
+          <article>
+            <span class="metric-icon" aria-hidden="true">●</span>
+            <div>
+              <small>Unread</small>
+              <strong id="unreadStat">8</strong>
+              <em class="negative-change">Requires attention</em>
+            </div>
+          </article>
+
+          <article>
+            <span class="metric-icon" aria-hidden="true">▣</span>
+            <div>
+              <small>Ticket Alerts</small>
+              <strong>6</strong>
+              <em class="negative-change">Awaiting action</em>
+            </div>
+          </article>
+
+          <article>
+            <span class="metric-icon" aria-hidden="true">◷</span>
+            <div>
+              <small>SLA Alerts</small>	
+              <strong>4</strong>
+              <em class="negative-change">Near escalation</em>
+            </div>
+          </article>
+
+          <article>
+            <span class="metric-icon" aria-hidden="true">✓</span>
+            <div>
+              <small>Resolution Updates</small>
+              <strong>5</strong>
+              <em>Updated this week</em>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <div class="filters">
+            <input
+              id="notificationSearch"
+              type="search"
+              placeholder="Search ticket, dispute or reference..."
+              aria-label="Search notifications"
+              autocomplete="off"
+            >
+
+            <select id="typeFilter" aria-label="Notification type">
+              <option value="all">All types</option>
+              <option value="ticket">Ticket</option>
+              <option value="recovery">Recovery</option>
+              <option value="dispute">Dispute</option>
+              <option value="sla">SLA Escalation</option>
+              <option value="investigation">Investigation</option>
+              <option value="resolution">Resolution</option>
+              <option value="report">Report</option>
+            </select>
+
+            <select id="statusFilter" aria-label="Notification status">
+              <option value="all">All statuses</option>
+              <option value="unread">Unread</option>
+              <option value="read">Read</option>
+            </select>
+
+            <select id="dateFilter" aria-label="Date range">
+              <option value="all">All dates</option>
+              <option value="today">Today</option>
+              <option value="week">This week</option>
+              <option value="month">This month</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="card records-panel">
+          <div class="card-title">
+            <div>
+              <h2>Sales Notifications</h2>
+              <span class="record-count" id="notificationResultText">10 notifications found</span>
+            </div>
+
+            <button class="outline" id="markAllReadButton" type="button">
+              Mark All as Read
+            </button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Reference</th>
+                  <th>Notification</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody id="notificationTableBody">
+                <tr data-type="ticket" data-status="unread" data-date="today" data-search="TKT-2026-1048 exception ticket high value Sales review">
+                  <td>Ticket</td>
+                  <td><strong>TKT-2026-1048</strong></td>
+                  <td>A high-value exception ticket requires Sales Manager review.</td>
+                  <td>20 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="recovery" data-status="unread" data-date="today" data-search="RCV-1187 recovery case manufacturer response overdue">
+                  <td>Sales</td>
+                  <td><strong>RCV-1187</strong></td>
+                  <td>Manufacturer response for recovery case RCV-1187 is overdue.</td>
+                  <td>20 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="sla" data-status="unread" data-date="week" data-search="SLA-3019 ticket aging escalation threshold">
+                  <td>SLA Escalation</td>
+                  <td><strong>SLA-3019</strong></td>
+                  <td>Ticket aging has crossed 80% of the configured SLA threshold.</td>
+                  <td>19 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="dispute" data-status="unread" data-date="week" data-search="DSP-2208 dispute evidence distributor submitted">
+                  <td>Dispute</td>
+                  <td><strong>DSP-2208</strong></td>
+                  <td>New supporting evidence was submitted for dispute DSP-2208.</td>
+                  <td>19 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="investigation" data-status="unread" data-date="week" data-search="INV-4112 investigation assigned warehouse discrepancy">
+                  <td>Investigation</td>
+                  <td><strong>INV-4112</strong></td>
+                  <td>A warehouse discrepancy investigation has been assigned to your team.</td>
+                  <td>18 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="resolution" data-status="unread" data-date="week" data-search="RES-2097 resolution validation distributor confirmation">
+                  <td>Resolution</td>
+                  <td><strong>RES-2097</strong></td>
+                  <td>Distributor confirmation is available for resolution validation.</td>
+                  <td>18 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="ticket" data-status="unread" data-date="week" data-search="TKT-2026-1036 ticket reassigned Sales team">
+                  <td>Ticket</td>
+                  <td><strong>TKT-2026-1036</strong></td>
+                  <td>An exception ticket has been reassigned to the Sales team.</td>
+                  <td>17 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="sla" data-status="unread" data-date="week" data-search="SLA-2984 escalation level two approaching">
+                  <td>SLA Escalation</td>
+                  <td><strong>SLA-2984</strong></td>
+                  <td>Escalation level two will be triggered within four hours.</td>
+                  <td>16 Oct 2026</td>
+                  <td class="notification-status"><mark class="warn">Unread</mark></td>
+                  <td><button class="btn mark-read-btn" type="button">Mark Read</button></td>
+                </tr>
+
+                <tr data-type="report" data-status="read" data-date="month" data-search="OPS-RPT-SEP operational report september generated">
+                  <td>Report</td>
+                  <td><strong>OPS-RPT-SEP</strong></td>
+                  <td>September Sales operations report was generated successfully.</td>
+                  <td>15 Oct 2026</td>
+                  <td class="notification-status"><mark>Read</mark></td>
+                  <td><button class="btn" type="button" disabled>Read</button></td>
+                </tr>
+
+                <tr data-type="resolution" data-status="read" data-date="month" data-search="RES-2041 resolution approved closed">
+                  <td>Resolution</td>
+                  <td><strong>RES-2041</strong></td>
+                  <td>Resolution RES-2041 was approved and the case was closed.</td>
+                  <td>14 Oct 2026</td>
+                  <td class="notification-status"><mark>Read</mark></td>
+                  <td><button class="btn" type="button" disabled>Read</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="grid two" style="margin-top: 17px;">
+          <article class="card">
+            <h2>Notification Preferences</h2>
+            <p>Select the Sales Manager alerts you want to receive.</p>
+
+            <form id="preferencesForm" class="form">
+              <label for="ticketPreference">
+                <span>Ticket assignment alerts</span>
+                <select id="ticketPreference" name="ticketPreference">
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </label>
+
+              <label for="slaPreference">
+                <span>SLA escalation alerts</span>
+                <select id="slaPreference" name="slaPreference">
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </label>
+
+              <label for="disputePreference">
+                <span>Dispute and investigation updates</span>
+                <select id="disputePreference" name="disputePreference">
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </label>
+
+              <label for="resolutionPreference">
+                <span>Resolution validation updates</span>
+                <select id="resolutionPreference" name="resolutionPreference">
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </label>
+
+              <div class="actions" style="grid-column: 1 / -1;">
+                <button class="primary-button" type="submit">Save Preferences</button>
+              </div>
+            </form>
+          </article>
+
+          <article class="card">
+            <h2>Notification Actions</h2>
+            <p>Export notification history or remove messages that have already been read.</p>
+
+            <div class="actions">
+              <button class="primary-button" id="exportNotificationsButton" type="button">
+                Export Notifications
+              </button>
+              <button class="outline" id="clearReadButton" type="button">
+                Clear Read Messages
+              </button>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      Empowering Distributors <span>|</span> Enabling Sustainable Growth
+    </footer>
+  </div>
+
+  <div class="dashboard-modal" id="notificationModal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="notificationModalTitle">
+      <button class="modal-close" id="closeNotificationModal" type="button" aria-label="Close notifications">×</button>
+      <h2 id="notificationModalTitle">Recent Notifications</h2>
+
+      <div class="insight-list">
+        <div class="insight">
+          <span class="metric-icon" aria-hidden="true">▣</span>
+          <div>
+            <b>High-value ticket requires review</b>
+            <small>TKT-2026-1048 was assigned today.</small>
+          </div>
+        </div>
+
+        <div class="insight">
+          <span class="metric-icon" aria-hidden="true">◷</span>
+          <div>
+            <b>SLA threshold approaching</b>
+            <small>SLA-3019 has crossed 80% of its allowed time.</small>
+          </div>
+        </div>
+
+        <div class="insight">
+          <span class="metric-icon" aria-hidden="true">◇</span>
+          <div>
+            <b>New dispute evidence received</b>
+            <small>Supporting evidence was added to DSP-2208.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top: 16px;">
+        <button class="primary-button" id="viewAllNotifications" type="button">
+          View All Notifications
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="validation.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+
+    /* =====================================================
+       DYNAMIC SIDEBAR NAVIGATION
+       ===================================================== */
+
+    const NAVIGATION = [
+      [
+        'index.html',
+        '⌂',
+        'Dashboard Overview'
+      ],
+      [
+        'distributor-network.html',
+        '◫',
+        'Distributor Network'
+      ],
+      [
+        'sales-performance.html',
+        '↗',
+        'Sales Performance'
+      ],
+      [
+        'distributor-health.html',
+        '♡',
+        'Distributor Health'
+      ],
+      [
+        'recommendation-center.html',
+        '✦',
+        'Recommendation Center'
+      ],
+      [
+        'returns-recovery.html',
+        '↺',
+        'Returns & Recovery'
+      ],
+      [
+        'carbon-compliance.html',
+        '♧',
+        'Carbon Compliance'
+      ],
+      [
+        'reports-analytics.html',
+        '▥',
+        'Reports & Analytics'
+      ],
+      [
+        'notifications.html',
+        '△',
+        'Notifications'
+      ]
+    ];
+
+    function buildDynamicNavigation() {
+      const mainNav =
+        document.getElementById('mainNav');
+
+      if (!mainNav) {
+        console.error(
+          'Dynamic navigation failed: #mainNav was not found.'
+        );
+
+        return;
+      }
+
+      const currentPage =
+        window.location.pathname
+          .split('/')
+          .pop() ||
+        'index.html';
+
+      mainNav.innerHTML =
+        NAVIGATION
+          .map(function (item) {
+            const page = item[0];
+            const icon = item[1];
+            const label = item[2];
+
+            const isActive =
+              page === currentPage;
+
+            return `
+              <a
+                class="nav-item nav-main${
+                  isActive ? ' active' : ''
+                }"
+                href="${page}"
+                ${
+                  isActive
+                    ? 'aria-current="page"'
+                    : ''
+                }
+              >
+                <span
+                  class="nav-icon"
+                  aria-hidden="true"
+                >
+                  ${icon}
+                </span>
+
+                <span class="nav-label">
+                  ${label}
+                </span>
+              </a>
+            `;
+          })
+          .join('');
+    }
+
+    buildDynamicNavigation();
+
+
+    /* =====================================================
+       ELEMENT REFERENCES
+       ===================================================== */
+
+    const sidebar =
+      document.getElementById('sidebar');
+
+    const mobileMenuButton =
+      document.getElementById(
+        'mobileMenuButton'
+      );
+
+    const navOverlay =
+      document.getElementById(
+        'navOverlay'
+      );
+
+    const notificationModal =
+      document.getElementById(
+        'notificationModal'
+      );
+
+    const notificationBell =
+      document.getElementById(
+        'notificationBell'
+      );
+
+    const closeNotificationModalButton =
+      document.getElementById(
+        'closeNotificationModal'
+      );
+
+    const viewAllNotificationsButton =
+      document.getElementById(
+        'viewAllNotifications'
+      );
+
+    const tableBody =
+      document.getElementById(
+        'notificationTableBody'
+      );
+
+    const notificationSearch =
+      document.getElementById(
+        'notificationSearch'
+      );
+
+    const globalSearch =
+      document.getElementById(
+        'globalSearch'
+      );
+
+    const typeFilter =
+      document.getElementById(
+        'typeFilter'
+      );
+
+    const statusFilter =
+      document.getElementById(
+        'statusFilter'
+      );
+
+    const dateFilter =
+      document.getElementById(
+        'dateFilter'
+      );
+
+    const toast =
+      document.getElementById(
+        'toast'
+      );
+
+    const markAllReadButton =
+      document.getElementById(
+        'markAllReadButton'
+      );
+
+    const preferencesForm =
+      document.getElementById(
+        'preferencesForm'
+      );
+
+    const clearReadButton =
+      document.getElementById(
+        'clearReadButton'
+      );
+
+    const exportNotificationsButton =
+      document.getElementById(
+        'exportNotificationsButton'
+      );
+
+    const logoutButton =
+      document.getElementById(
+        'logoutButton'
+      );
+
+
+    /* =====================================================
+       TOAST MESSAGE
+       ===================================================== */
+
+    function showToast(
+      message,
+      type
+    ) {
+      if (!toast) {
+        console.log(message);
+        return;
+      }
+
+      toast.textContent =
+        message;
+
+      toast.className =
+        'dashboard-toast' +
+        (
+          type
+            ? ' ' + type
+            : ''
+        );
+
+      toast.hidden = false;
+
+      window.clearTimeout(
+        showToast.timer
+      );
+
+      showToast.timer =
+        window.setTimeout(
+          function () {
+            toast.hidden = true;
+          },
+          2800
+        );
+    }
+
+
+    /* =====================================================
+       MOBILE SIDEBAR
+       ===================================================== */
+
+    function openSidebar() {
+      if (!sidebar) {
+        return;
+      }
+
+      sidebar.classList.add(
+        'mobile-open'
+      );
+
+      navOverlay?.classList.add(
+        'show'
+      );
+
+      document.body.classList.add(
+        'nav-open'
+      );
+
+      mobileMenuButton?.setAttribute(
+        'aria-expanded',
+        'true'
+      );
+    }
+
+    function closeSidebar() {
+      sidebar?.classList.remove(
+        'mobile-open'
+      );
+
+      navOverlay?.classList.remove(
+        'show'
+      );
+
+      document.body.classList.remove(
+        'nav-open'
+      );
+
+      mobileMenuButton?.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+    }
+
+    mobileMenuButton?.addEventListener(
+      'click',
+      function () {
+        if (
+          sidebar?.classList.contains(
+            'mobile-open'
+          )
+        ) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      }
+    );
+
+    navOverlay?.addEventListener(
+      'click',
+      closeSidebar
+    );
+
+    sidebar?.addEventListener(
+      'click',
+      function (event) {
+        if (
+          event.target.closest('a') &&
+          window.innerWidth <= 760
+        ) {
+          closeSidebar();
+        }
+      }
+    );
+
+
+    /* =====================================================
+       NOTIFICATION MODAL
+       ===================================================== */
+
+    function openNotificationModal() {
+      if (!notificationModal) {
+        return;
+      }
+
+      notificationModal.hidden = false;
+    }
+
+    function closeNotificationModal() {
+      if (!notificationModal) {
+        return;
+      }
+
+      notificationModal.hidden = true;
+    }
+
+    notificationBell?.addEventListener(
+      'click',
+      openNotificationModal
+    );
+
+    closeNotificationModalButton
+      ?.addEventListener(
+        'click',
+        closeNotificationModal
+      );
+
+    notificationModal?.addEventListener(
+      'click',
+      function (event) {
+        if (
+          event.target ===
+          notificationModal
+        ) {
+          closeNotificationModal();
+        }
+      }
+    );
+
+    document.addEventListener(
+      'keydown',
+      function (event) {
+        if (
+          event.key === 'Escape'
+        ) {
+          closeNotificationModal();
+          closeSidebar();
+        }
+      }
+    );
+
+    viewAllNotificationsButton
+      ?.addEventListener(
+        'click',
+        function () {
+          closeNotificationModal();
+
+          document
+            .querySelector(
+              '.records-panel'
+            )
+            ?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+        }
+      );
+
+
+    /* =====================================================
+       UNREAD COUNT
+       ===================================================== */
+
+    function updateUnreadCount() {
+      if (!tableBody) {
+        return;
+      }
+
+      const unreadCount =
+        tableBody.querySelectorAll(
+          'tr[data-status="unread"]'
+        ).length;
+
+      const notificationCount =
+        document.getElementById(
+          'notificationCount'
+        );
+
+      const notifyCount =
+        document.getElementById(
+          'notifyCount'
+        );
+
+      const unreadStat =
+        document.getElementById(
+          'unreadStat'
+        );
+
+      const heroUnreadCount =
+        document.getElementById(
+          'heroUnreadCount'
+        );
+
+      if (notificationCount) {
+        notificationCount.textContent =
+          unreadCount;
+      }
+
+      if (notifyCount) {
+        notifyCount.textContent =
+          unreadCount;
+      }
+
+      if (unreadStat) {
+        unreadStat.textContent =
+          unreadCount;
+      }
+
+      if (heroUnreadCount) {
+        heroUnreadCount.textContent =
+          unreadCount +
+          (
+            unreadCount === 1
+              ? ' unread notification'
+              : ' unread notifications'
+          );
+      }
+    }
+
+
+    /* =====================================================
+       MARK ONE ROW AS READ
+       ===================================================== */
+
+    function setRowRead(row) {
+      if (!row) {
+        return;
+      }
+
+      row.dataset.status =
+        'read';
+
+      const statusCell =
+        row.querySelector(
+          '.notification-status'
+        );
+
+      if (statusCell) {
+        statusCell.innerHTML =
+          '<mark>Read</mark>';
+      }
+
+      const button =
+        row.querySelector(
+          '.mark-read-btn'
+        );
+
+      if (button) {
+        button.textContent =
+          'Read';
+
+        button.disabled =
+          true;
+
+        button.classList.remove(
+          'mark-read-btn'
+        );
+      }
+    }
+
+    tableBody?.addEventListener(
+      'click',
+      function (event) {
+        const button =
+          event.target.closest(
+            '.mark-read-btn'
+          );
+
+        if (!button) {
+          return;
+        }
+
+        setRowRead(
+          button.closest('tr')
+        );
+
+        updateUnreadCount();
+        applyFilters();
+
+        showToast(
+          'Notification marked as read.'
+        );
+      }
+    );
+
+
+    /* =====================================================
+       MARK ALL AS READ
+       ===================================================== */
+
+    markAllReadButton
+      ?.addEventListener(
+        'click',
+        function () {
+          if (!tableBody) {
+            return;
+          }
+
+          const unreadRows =
+            tableBody.querySelectorAll(
+              'tr[data-status="unread"]'
+            );
+
+          if (
+            unreadRows.length === 0
+          ) {
+            showToast(
+              'All notifications are already read.',
+              'info'
+            );
+
+            return;
+          }
+
+          unreadRows.forEach(
+            setRowRead
+          );
+
+          updateUnreadCount();
+          applyFilters();
+
+          showToast(
+            'All notifications marked as read.'
+          );
+        }
+      );
+
+
+    /* =====================================================
+       SEARCH AND FILTERS
+       ===================================================== */
+
+    function applyFilters() {
+      if (!tableBody) {
+        return;
+      }
+
+      const searchTerm =
+        notificationSearch
+          ?.value
+          .trim()
+          .toLowerCase() ||
+        '';
+
+      const selectedType =
+        typeFilter?.value ||
+        'all';
+
+      const selectedStatus =
+        statusFilter?.value ||
+        'all';
+
+      const selectedDate =
+        dateFilter?.value ||
+        'all';
+
+      let visibleCount = 0;
+
+      tableBody
+        .querySelectorAll('tr')
+        .forEach(function (row) {
+          const content =
+            (
+              (
+                row.dataset.search ||
+                ''
+              ) +
+              ' ' +
+              row.textContent
+            ).toLowerCase();
+
+          const matchesSearch =
+            content.includes(
+              searchTerm
+            );
+
+          const matchesType =
+            selectedType === 'all' ||
+            row.dataset.type ===
+              selectedType;
+
+          const matchesStatus =
+            selectedStatus === 'all' ||
+            row.dataset.status ===
+              selectedStatus;
+
+          let matchesDate =
+            selectedDate === 'all';
+
+          if (
+            selectedDate === 'today'
+          ) {
+            matchesDate =
+              row.dataset.date ===
+              'today';
+          } else if (
+            selectedDate === 'week'
+          ) {
+            matchesDate =
+              row.dataset.date ===
+                'today' ||
+              row.dataset.date ===
+                'week';
+          } else if (
+            selectedDate === 'month'
+          ) {
+            matchesDate = true;
+          }
+
+          const visible =
+            matchesSearch &&
+            matchesType &&
+            matchesStatus &&
+            matchesDate;
+
+          row.hidden =
+            !visible;
+
+          if (visible) {
+            visibleCount += 1;
+          }
+        });
+
+      const resultText =
+        document.getElementById(
+          'notificationResultText'
+        );
+
+      if (resultText) {
+        resultText.textContent =
+          visibleCount +
+          (
+            visibleCount === 1
+              ? ' notification found'
+              : ' notifications found'
+          );
+      }
+    }
+
+    notificationSearch
+      ?.addEventListener(
+        'input',
+        applyFilters
+      );
+
+    typeFilter?.addEventListener(
+      'change',
+      applyFilters
+    );
+
+    statusFilter?.addEventListener(
+      'change',
+      applyFilters
+    );
+
+    dateFilter?.addEventListener(
+      'change',
+      applyFilters
+    );
+
+    globalSearch?.addEventListener(
+      'input',
+      function () {
+        if (!notificationSearch) {
+          return;
+        }
+
+        notificationSearch.value =
+          globalSearch.value;
+
+        applyFilters();
+      }
+    );
+
+
+    /* =====================================================
+       SAVE PREFERENCES
+       ===================================================== */
+
+    preferencesForm?.addEventListener(
+      'submit',
+      function (event) {
+        event.preventDefault();
+
+        const ticketPreference =
+          document.getElementById(
+            'ticketPreference'
+          );
+
+        const slaPreference =
+          document.getElementById(
+            'slaPreference'
+          );
+
+        const disputePreference =
+          document.getElementById(
+            'disputePreference'
+          );
+
+        const resolutionPreference =
+          document.getElementById(
+            'resolutionPreference'
+          );
+
+        const preferences = {
+          ticket:
+            ticketPreference?.value ||
+            'enabled',
+
+          sla:
+            slaPreference?.value ||
+            'enabled',
+
+          dispute:
+            disputePreference?.value ||
+            'enabled',
+
+          resolution:
+            resolutionPreference?.value ||
+            'enabled'
+        };
+
+        localStorage.setItem(
+          'dsphereSalesNotificationPreferences',
+          JSON.stringify(
+            preferences
+          )
+        );
+
+        showToast(
+          'Notification preferences saved.'
+        );
+      }
+    );
+
+
+    /* =====================================================
+       RESTORE PREFERENCES
+       ===================================================== */
+
+    function restorePreferences() {
+      try {
+        const savedPreferences =
+          localStorage.getItem(
+            'dsphereSalesNotificationPreferences'
+          );
+
+        if (!savedPreferences) {
+          return;
+        }
+
+        const preferences =
+          JSON.parse(
+            savedPreferences
+          );
+
+        const ticketPreference =
+          document.getElementById(
+            'ticketPreference'
+          );
+
+        const slaPreference =
+          document.getElementById(
+            'slaPreference'
+          );
+
+        const disputePreference =
+          document.getElementById(
+            'disputePreference'
+          );
+
+        const resolutionPreference =
+          document.getElementById(
+            'resolutionPreference'
+          );
+
+        if (ticketPreference) {
+          ticketPreference.value =
+            preferences.ticket ||
+            'enabled';
+        }
+
+        if (slaPreference) {
+          slaPreference.value =
+            preferences.sla ||
+            'enabled';
+        }
+
+        if (disputePreference) {
+          disputePreference.value =
+            preferences.dispute ||
+            'enabled';
+        }
+
+        if (resolutionPreference) {
+          resolutionPreference.value =
+            preferences.resolution ||
+            'enabled';
+        }
+      } catch (error) {
+        console.error(
+          'Unable to restore notification preferences:',
+          error
+        );
+      }
+    }
+
+
+    /* =====================================================
+       CLEAR READ NOTIFICATIONS
+       ===================================================== */
+
+    clearReadButton?.addEventListener(
+      'click',
+      function () {
+        if (!tableBody) {
+          return;
+        }
+
+        const readRows =
+          tableBody.querySelectorAll(
+            'tr[data-status="read"]'
+          );
+
+        if (
+          readRows.length === 0
+        ) {
+          showToast(
+            'There are no read notifications to clear.',
+            'info'
+          );
+
+          return;
+        }
+
+        readRows.forEach(
+          function (row) {
+            row.remove();
+          }
+        );
+
+        updateUnreadCount();
+        applyFilters();
+
+        showToast(
+          'Read notifications cleared.'
+        );
+      }
+    );
+
+
+    /* =====================================================
+       EXPORT NOTIFICATIONS
+       ===================================================== */
+
+    exportNotificationsButton
+      ?.addEventListener(
+        'click',
+        function () {
+          if (!tableBody) {
+            return;
+          }
+
+          const rows =
+            tableBody.querySelectorAll(
+              'tr'
+            );
+
+          if (
+            rows.length === 0
+          ) {
+            showToast(
+              'There are no notifications to export.',
+              'error'
+            );
+
+            return;
+          }
+
+          const csvRows = [
+            [
+              'Category',
+              'Reference',
+              'Notification',
+              'Date',
+              'Status'
+            ]
+          ];
+
+          rows.forEach(
+            function (row) {
+              const cells =
+                row.querySelectorAll(
+                  'td'
+                );
+
+              if (
+                cells.length < 5
+              ) {
+                return;
+              }
+
+              csvRows.push([
+                cells[0]
+                  .textContent
+                  .trim(),
+
+                cells[1]
+                  .textContent
+                  .trim(),
+
+                cells[2]
+                  .textContent
+                  .trim(),
+
+                cells[3]
+                  .textContent
+                  .trim(),
+
+                row.dataset.status ||
+                  ''
+              ]);
+            }
+          );
+
+          const csvContent =
+            '\uFEFF' +
+            csvRows
+              .map(
+                function (row) {
+                  return row
+                    .map(
+                      function (value) {
+                        return (
+                          '"' +
+                          String(value)
+                            .replace(
+                              /"/g,
+                              '""'
+                            ) +
+                          '"'
+                        );
+                      }
+                    )
+                    .join(',');
+                }
+              )
+              .join('\n');
+
+          const blob =
+            new Blob(
+              [csvContent],
+              {
+                type:
+                  'text/csv;charset=utf-8;'
+              }
+            );
+
+          const url =
+            URL.createObjectURL(
+              blob
+            );
+
+          const link =
+            document.createElement(
+              'a'
+            );
+
+          link.href = url;
+
+          link.download =
+            'dsphere-notifications.csv';
+
+          document.body.appendChild(
+            link
+          );
+
+          link.click();
+          link.remove();
+
+          URL.revokeObjectURL(
+            url
+          );
+
+          showToast(
+            'Notification report downloaded.'
+          );
+        }
+      );
+
+
+    /* =====================================================
+       LOGOUT
+       ===================================================== */
+
+    logoutButton?.addEventListener(
+      'click',
+      function () {
+        sessionStorage.clear();
+
+        showToast(
+          'Logged out successfully.'
+        );
+
+        window.setTimeout(
+          function () {
+            window.location.href =
+              '../index.html';
+          },
+          800
+        );
+      }
+    );
+
+
+    /* =====================================================
+       INITIAL PAGE SETUP
+       ===================================================== */
+
+    restorePreferences();
+    updateUnreadCount();
+    applyFilters();
+  });
+  </script>
+<script src="notification-bell.js"></script>
+</body>
+</html>

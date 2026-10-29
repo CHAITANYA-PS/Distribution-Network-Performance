@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="logo.png"
+    >
+
+    <title>Configuration Center | Dsphere</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         TOP NAVIGATION
+         ========================================= -->
+    <header class="topbar">
+
+        <!-- Brand -->
+        <a
+            class="brand"
+            href="dashboard.html"
+            aria-label="Go to System Administrator dashboard"
+        >
+            <img
+                class="brand-logo"
+                src="logo.png"
+                alt="Dsphere project logo"
+            >
+
+            <span>
+                <b>Dsphere</b>
+
+                <small>
+                    Distributor Operations Management Platform
+                </small>
+            </span>
+        </a>
+
+        <!-- Global Search -->
+        <input
+            class="global-search"
+            id="globalSearch"
+            type="search"
+            placeholder="Search users, modules, reports, settings..."
+            aria-label="Search System Administrator workspace"
+            autocomplete="off"
+        >
+
+        <!-- Profile -->
+        <div class="profile">
+
+            
+<span
+    class="bell"
+    role="button"
+    tabindex="0"
+    aria-label="Open notifications"
+>
+    🔔<i>8</i>
+</span>
+            <!-- Avatar -->
+            <span class="avatar">
+                SA
+            </span>
+
+            <!-- User Information -->
+            <span>
+                <b>System Administrator</b>
+                <small>Administrator</small>
+            </span>
+
+            <!-- Logout -->
+            <a
+                class="logout-button"
+                href="../index.html"
+                title="Logout from Dsphere"
+            >
+
+                <span class="logout-text">
+                    Logout
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         APPLICATION LAYOUT
+         ========================================= -->
+    <div class="app">
+
+        <!-- =====================================
+             SIDEBAR
+             ===================================== -->
+        <aside class="sidebar">
+
+            <nav class="side-nav"><a class="nav-main" href="dashboard.html"><span class="nav-icon">⌂</span><span>Dashboard Overview</span></a><a class="nav-main" href="user-management.html"><span class="nav-icon">♟</span><span>User Management</span><span class="chevron">⌃</span></a><div class="sub-nav"><a class="active-sub" href="user-registration.html">User Registration & Accounts</a><a class="" href="user-activation.html">User Activation & Access Revocation</a></div><a class="nav-main" href="master-data.html"><span class="nav-icon">▤</span><span>Master Data Management</span></a><a class="nav-main" href="configuration.html"><span class="nav-icon">⚙</span><span>Configuration Center</span><span class="chevron">⌃</span></a><a class="nav-main" href="audit-trail.html"><span class="nav-icon">▣</span><span>Audit Trail</span></a><a class="nav-main" href="system-monitoring.html"><span class="nav-icon">▥</span><span>System Monitoring</span></a><a class="nav-main" href="notifications.html" aria-current="page">
+    <span class="nav-icon">△</span>
+    <span>Notifications</span>
+</a></nav>
+
+            <!-- Sidebar Footer -->
+            <div class="side-foot">
+                Version 1.0.0
+                <br>
+                © 2026 Dsphere
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================
+             MAIN CONTENT
+             ===================================== -->
+        <main class="main">
+
+            <!-- Page Header -->
+            <div class="page-head">
+
+                <div>
+                    <p>
+                        Configuration Center
+                    </p>
+
+                    <h1>
+                        Configuration Center
+                    </h1>
+
+                    <span>
+                        Manage distribution network settings and
+                        operational rules.
+                    </span>
+                </div>
+
+                <button
+                    id="saveAllChangesButton"
+                    type="button"
+                >
+                    Save All Changes
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 CONFIGURATION CARDS
+                 ================================= -->
+            <div class="grid cards3">
+
+                <!-- System Configuration -->
+                <a
+                    class="feature card"
+                    href="system-configuration.html"
+                >
+                    <span aria-hidden="true">
+                        ⚙
+                    </span>
+
+                    <h2>
+                        System Configuration
+                    </h2>
+
+                    <p>
+                        Core distribution network settings.
+                    </p>
+
+                    <b>
+                        Open page →
+                    </b>
+                </a>
+
+
+                <!-- Emission Factor Configuration -->
+                <a
+                    class="feature card"
+                    href="emission-factor.html"
+                >
+                    <span aria-hidden="true">
+                        ♧
+                    </span>
+
+                    <h2>
+                        Emission Factor Configuration
+                    </h2>
+
+                    <p>
+                        Transport and warehouse emission factors.
+                    </p>
+
+                    <b>
+                        Open page →
+                    </b>
+                </a>
+
+
+                <!-- Exchange Rules Configuration -->
+                <a
+                    class="feature card"
+                    href="exchange-rules.html"
+                >
+                    <span aria-hidden="true">
+                        ⇄
+                    </span>
+
+                    <h2>
+                        Exchange Rules Configuration
+                    </h2>
+
+                    <p>
+                        Return, replacement and exchange rules.
+                    </p>
+
+                    <b>
+                        Open page →
+                    </b>
+                </a>
+
+
+                <!-- SLA and Escalation Configuration -->
+                <a
+                    class="feature card"
+                    href="sla-escalation.html"
+                >
+                    <span aria-hidden="true">
+                        ◷
+                    </span>
+
+                    <h2>
+                        SLA &amp; Escalation Configuration
+                    </h2>
+
+                    <p>
+                        Service levels and escalation paths.
+                    </p>
+
+                    <b>
+                        Open page →
+                    </b>
+                </a>
+
+
+                
+
+            </div>
+
+        </main>
+    </div>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="footer">
+        Empowering Distributors
+        &nbsp;|&nbsp;
+        Enabling Sustainable Growth
+    </footer>
+
+
+    <!-- Dashboard JavaScript -->
+    <script
+        src="dashboard.js"
+        defer
+    ></script>
+<script src="notification-bell.js"></script>
+</body>
+</html>
