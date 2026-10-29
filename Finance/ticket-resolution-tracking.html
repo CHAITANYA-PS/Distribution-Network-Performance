@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
+
+    <meta
+        name="description"
+        content="Dsphere Finance Manager - Ticket Resolution Tracking"
+    />
+
+    <title>Ticket Resolution Tracking | Dsphere</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+</head>
+
+<body data-section="resolution">
+
+    <!-- =========================================
+         TOP NAVIGATION BAR
+    ========================================== -->
+    <header class="topbar">
+
+        <a class="brand" href="dashboard.html">
+            <img
+                src="logo.png"
+                alt="Dsphere logo"
+            />
+
+            <span>
+                <strong>Dsphere</strong>
+                <small>
+                    Distributor Operations Management Platform
+                </small>
+            </span>
+        </a>
+
+        <label class="global-search">
+            <span aria-hidden="true">⌕</span>
+
+            <input
+                id="globalSearch"
+                type="search"
+                placeholder="Search current page..."
+                autocomplete="off"
+            />
+        </label>
+
+        <div class="profile">
+
+            <span
+    class="bell"
+    role="button"
+    tabindex="0"
+    aria-label="Open notifications"
+>
+    🔔
+</span>
+
+            <span class="avatar">FM</span>
+
+            <span>
+                <b>Finance Manager</b>
+                <small>Finance Operations</small>
+            </span>
+
+            <button
+                id="logoutButton"
+                class="logout-btn"
+                type="button"
+                title="Logout"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         APPLICATION LAYOUT
+    ========================================== -->
+    <div class="app">
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <!-- Dashboard -->
+                <a
+                    class="nav-link"
+                    href="dashboard.html"
+                >
+                    <span aria-hidden="true">⌂</span>
+                    <b>Dashboard Overview</b>
+                </a>
+
+
+                <!-- Receivables Management -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span aria-hidden="true">▣</span>
+                        <b>Receivables Management</b>
+                        <i aria-hidden="true">⌄</i>
+                    </button>
+
+                    <div class="sub-nav">
+
+                        <a href="payment-performance.html">
+                            Payment Performance
+                        </a>
+
+                        <a href="invoices-outstanding.html">
+                            Invoices &amp; Outstanding Amounts
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Credit Risk Analysis -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span aria-hidden="true">◇</span>
+                        <b>Credit Risk Analysis</b>
+                        <i aria-hidden="true">⌄</i>
+                    </button>
+
+                    <div class="sub-nav">
+
+                        <a href="distributor-credit-risk.html">
+                            Distributor Credit Risk
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Inventory Financials -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span aria-hidden="true">▤</span>
+                        <b>Inventory Financials</b>
+                        <i aria-hidden="true">⌄</i>
+                    </button>
+
+                    <div class="sub-nav">
+
+                        <a href="inventory-holding-cost.html">
+                            Inventory Holding Cost
+                        </a>
+
+                        <a href="inventory-turnover.html">
+                            Inventory Turnover
+                        </a>
+
+                        <a href="inventory-loss-management.html">
+                            Inventory Loss Management
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Working Capital Analysis -->
+                <a
+                    class="nav-link"
+                    href="working-capital-analysis.html"
+                >
+                    <span aria-hidden="true">◫</span>
+                    <b>Working Capital Analysis</b>
+                </a>
+
+
+                <!-- Dispute and Issue Resolution -->
+                <div class="nav-group open">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="true"
+                    >
+                        <span aria-hidden="true">⚑</span>
+                        <b>Dispute &amp; Issue Resolution</b>
+                        <i aria-hidden="true">⌄</i>
+                    </button>
+
+                    <div class="sub-nav">
+
+                        <a href="financial-exceptions-disputes.html">
+                            Financial Exceptions &amp; Disputes
+                        </a>
+
+                        <a href="payment-evidence-documents.html">
+                            Payment Evidence &amp; Documents
+                        </a>
+
+                        <a
+                            class="active"
+                            href="ticket-resolution-tracking.html"
+                            aria-current="page"
+                        >
+                            Ticket Resolution Tracking
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Reports and Analytics -->
+                <a
+                    class="nav-link"
+                    href="reports-analytics.html"
+                >
+                    <span aria-hidden="true">▥</span>
+                    <b>Reports &amp; Analytics</b>
+                </a>
+
+
+                <!-- Notifications -->
+                <a
+                    class="nav-link"
+                    href="notifications.html"
+                >
+                    <span aria-hidden="true">△</span>
+                    <b>Notifications</b>
+                </a>
+
+            </nav>
+
+
+            <footer>
+                Version 1.0.0
+                <br />
+                &copy; 2026 Dsphere
+            </footer>
+
+        </aside>
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+        <main>
+
+            <!-- Hero Section -->
+            <section class="hero">
+
+                <div>
+                    <p>RESOLUTION</p>
+
+                    <h1>Ticket Resolution Tracking</h1>
+
+                    <span>
+                        Follow the full financial issue-resolution life cycle.
+                    </span>
+                </div>
+
+            </section>
+
+
+            <!-- Ticket Overview -->
+            <section class="module-visual resolution-visual">
+
+                <div>
+                    <h2>Ticket Resolution Tracking Overview</h2>
+
+                    <p>
+                        Follow the full financial issue-resolution life cycle.
+                    </p>
+                </div>
+
+                <div
+                    class="ticket-stack"
+                    aria-label="Ticket status summary"
+                >
+                    <span>Open 14</span>
+                    <span>In Progress 9</span>
+                    <span>Resolved 31</span>
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 FILTER PANEL
+            ================================== -->
+            <section class="filter-panel">
+
+                <div>
+
+                    <label>
+                        Search records
+
+                        <input
+                            id="tableSearch"
+                            type="search"
+                            placeholder="Search by any visible value..."
+                            autocomplete="off"
+                        />
+                    </label>
+
+
+                    <label>
+                        Status
+
+                        <select id="statusFilter">
+                            <option value="">All statuses</option>
+                            <option value="Active">Active</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </label>
+
+
+                    <label>
+                        From date
+
+                        <input
+                            id="fromDateFilter"
+                            type="date"
+                        />
+                    </label>
+
+
+                    <label>
+                        To date
+
+                        <input
+                            id="toDateFilter"
+                            type="date"
+                        />
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 TICKET RECORDS
+            ================================== -->
+            <section class="records-panel">
+
+                <div class="panel-head">
+
+                    <div>
+                        <h2>Current Records</h2>
+                        <span id="recordCount">5 records</span>
+                    </div>
+
+                    <button
+                        id="exportTop"
+                        class="outline-btn"
+                        type="button"
+                    >
+                        Export CSV
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table id="recordsTable">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Issue Type</th>
+                                <th>Distributor Name</th>
+                                <th>Created Date</th>
+                                <th>Assigned To</th>
+                                <th>Priority</th>
+                                <th>Current Status</th>
+                                <th>Resolution Date</th>
+                                <th>Resolution Notes</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Ticket 1 -->
+                            <tr data-index="0">
+                                <td>TIC-1101</td>
+                                <td>Payment Issue</td>
+                                <td>Apex Distributors</td>
+                                <td>2026-10-10</td>
+                                <td>Finance Team</td>
+                                <td>High</td>
+                                <td>Completed</td>
+                                <td>2026-10-12</td>
+                                <td>Payment entry verified and corrected.</td>
+                            </tr>
+
+
+                            <!-- Ticket 2 -->
+                            <tr data-index="1">
+                                <td>TIC-1102</td>
+                                <td>Invoice Dispute</td>
+                                <td>Metro Wholesale</td>
+                                <td>2026-10-11</td>
+                                <td>Accounts Team</td>
+                                <td>Medium</td>
+                                <td>Pending</td>
+                                <td>2026-10-22</td>
+                                <td>Waiting for distributor confirmation.</td>
+                            </tr>
+
+
+                            <!-- Ticket 3 -->
+                            <tr data-index="2">
+                                <td>TIC-1103</td>
+                                <td>Credit Risk</td>
+                                <td>Sunrise Traders</td>
+                                <td>2026-10-12</td>
+                                <td>Risk Review Team</td>
+                                <td>High</td>
+                                <td>Active</td>
+                                <td>2026-10-25</td>
+                                <td>Financial risk assessment is in progress.</td>
+                            </tr>
+
+
+                            <!-- Ticket 4 -->
+                            <tr data-index="3">
+                                <td>TIC-1104</td>
+                                <td>Inventory Financial</td>
+                                <td>Coastal Supply</td>
+                                <td>2026-10-13</td>
+                                <td>Inventory Finance Team</td>
+                                <td>Medium</td>
+                                <td>Active</td>
+                                <td>2026-10-27</td>
+                                <td>Inventory valuation requires verification.</td>
+                            </tr>
+
+
+                            <!-- Ticket 5 -->
+                            <tr data-index="4">
+                                <td>TIC-1105</td>
+                                <td>Document Verification</td>
+                                <td>Prime Retail</td>
+                                <td>2026-10-14</td>
+                                <td>Document Review Team</td>
+                                <td>Low</td>
+                                <td>Completed</td>
+                                <td>2026-10-18</td>
+                                <td>Supporting documents reviewed and approved.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Pagination -->
+                <div class="pagination">
+
+                    <button
+                        type="button"
+                        aria-label="Previous page"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="current"
+                        type="button"
+                                <button
+                        type="button"
+                        aria-label="Page 2"
+                    >
+                        2
+                    </button>
+
+                    <button
+                        type="button"
+                        aria-label="Page 3"
+                    >
+                        3
+                    </button>
+
+                    <button
+                        type="button"
+                        aria-label="Next page"
+                    >
+                        ›
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 AVAILABLE ACTIONS
+            ================================== -->
+            <section class="page-actions">
+
+                <h2>Available Actions</h2>
+
+                <p>
+                    Select a table row before using Edit, Delete or Close.
+                </p>
+
+                <div>
+
+                    <button
+                        type="button"
+                        data-action="Add Ticket"
+                    >
+                        Add Ticket
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Edit Ticket"
+                    >
+                        Edit Ticket
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Delete Ticket"
+                    >
+                        Delete Ticket
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Close Ticket"
+                    >
+                        Close Ticket
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ADD AND EDIT TICKET DIALOG
+            ================================== -->
+            <dialog id="recordDialog">
+
+                <form
+                    id="recordForm"
+                    method="dialog"
+                    novalidate
+                >
+
+                    <div class="dialog-head">
+
+                        <div>
+                            <p>Ticket Resolution Tracking</p>
+                            <h2 id="dialogTitle">Add Ticket</h2>
+                        </div>
+
+                        <button
+                            class="close-dialog"
+                            type="button"
+                            aria-label="Close ticket form"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <label>
+                            <span>Ticket ID</span>
+
+                            <input
+                                id="field-0"
+                                name="Ticket ID"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Issue Type</span>
+
+                            <select
+                                id="field-1"
+                                name="Issue Type"
+                                required
+                            >
+                                <option value="">
+                                    Select Issue Type
+                                </option>
+
+                                <option value="Payment Issue">
+                                    Payment Issue
+                                </option>
+
+                                <option value="Invoice Dispute">
+                                    Invoice Dispute
+                                </option>
+
+                                <option value="Document Verification">
+                                    Document Verification
+                                </option>
+
+                                <option value="Credit Risk">
+                                    Credit Risk
+                                </option>
+
+                                <option value="Inventory Financial">
+                                    Inventory Financial
+                                </option>
+                            </select>
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Distributor Name</span>
+
+                            <input
+                                id="field-2"
+                                name="Distributor Name"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Created Date</span>
+
+                            <input
+                                id="field-3"
+                                name="Created Date"
+                                type="date"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Assigned To</span>
+
+                            <input
+                                id="field-4"
+                                name="Assigned To"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Priority</span>
+
+                            <select
+                                id="field-5"
+                                name="Priority"
+                                required
+                            >
+                                <option value="">
+                                    Select Priority
+                                </option>
+
+                                <option value="High">
+                                    High
+                                </option>
+
+                                <option value="Medium">
+                                    Medium
+                                </option>
+
+                                <option value="Low">
+                                    Low
+                                </option>
+                            </select>
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Current Status</span>
+
+                            <select
+                                id="field-6"
+                                name="Current Status"
+                                required
+                            >
+                                <option value="">
+                                    Select Current Status
+                                </option>
+
+                                <option value="Active">
+                                    Active
+                                </option>
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="Completed">
+                                    Completed
+                                </option>
+                            </select>
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Resolution Date</span>
+
+                            <input
+                                id="field-7"
+                                name="Resolution Date"
+                                type="date"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+
+                        <label>
+                            <span>Resolution Notes</span>
+
+                            <textarea
+                                id="field-8"
+                                name="Resolution Notes"
+                                rows="4"
+                                required
+                            ></textarea>
+
+                            <small class="field-error"></small>
+                        </label>
+
+                    </div>
+
+
+                    <div class="dialog-actions">
+
+                        <button
+                            class="outline-btn close-dialog"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button type="submit">
+                            Save Record
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+            </dialog>
+
+
+            <!-- =================================
+                 MONTHLY COMPARISON DIALOG
+            ================================== -->
+            <dialog id="compareDialog">
+
+                <div class="dialog-head">
+
+                    <div>
+                        <p>Analysis</p>
+                        <h2>Monthly Comparison</h2>
+                    </div>
+
+                    <button
+                        class="close-compare"
+                        type="button"
+                        aria-label="Close monthly comparison"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="comparison">
+
+                    <article>
+                        <small>Previous Month</small>
+                        <b>₹2.88M</b>
+                        <em>September 2026</em>
+                    </article>
+
+                    <article>
+                        <small>Current Month</small>
+                        <b>₹3.17M</b>
+                        <em>October 2026</em>
+                    </article>
+
+                    <article>
+                        <small>Change</small>
+                        <b class="positive">+10.1%</b>
+                        <em>Improved position</em>
+                    </article>
+
+                </div>
+
+
+                <button
+                    class="close-compare"
+                    type="button"
+                >
+                    Close
+                </button>
+
+            </dialog>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         NOTIFICATION PANEL
+    ========================================== -->
+    <section
+        id="notificationPanel"
+        class="notification-panel"
+        aria-hidden="true"
+        aria-label="Finance Manager notifications"
+    >
+
+        <div class="notification-head">
+
+            <div>
+                <small>Finance Manager</small>
+                <h2>Notifications</h2>
+            </div>
+
+            <button
+                id="closeNotifications"
+                type="button"
+                aria-label="Close notifications"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="notification-list">
+
+            <article>
+
+                <span
+                    class="notice-icon urgent"
+                    aria-hidden="true"
+                >
+                    !
+                </span>
+
+                <div>
+                    <b>5 invoices awaiting approval</b>
+
+                    <p>
+                        Review pending invoices in Invoices &amp;
+                        Outstanding Amounts.
+                    </p>
+
+                    <small>Today, 10:15 AM</small>
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <span
+                    class="notice-icon warning"
+                    aria-hidden="true"
+                >
+                    ₹
+                </span>
+
+                <div>
+                    <b>3 overdue payment follow-ups</b>
+
+                    <p>
+                        Collection reminders are due for distributor
+                        accounts.
+                    </p>
+
+                    <small>Today, 9:30 AM</small>
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <span
+                    class="notice-icon risk"
+                    aria-hidden="true"
+                >
+                    ◇
+                </span>
+
+                <div>
+                    <b>Credit-risk review due</b>
+
+                    <p>
+                        Two high-risk distributor assessments require
+                        review.
+                    </p>
+
+                    <small>Yesterday</small>
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <span
+                    class="notice-icon success"
+                    aria-hidden="true"
+                >
+                    ✓
+                </span>
+
+                <div>
+                    <b>Monthly report generated</b>
+
+                    <p>
+                        The October finance report is available for export.
+                    </p>
+
+                    <small>18 Oct 2026</small>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="notification-foot">
+
+            <button
+                id="markAllRead"
+                type="button"
+            >
+                Mark all as read
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TOAST MESSAGE
+    ========================================== -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =========================================
+         PAGE CONFIGURATION
+    ========================================== -->
+    <script>
+        window.PAGE_CONFIG = {
+            page: "Ticket Resolution Tracking",
+
+            fields: [
+                "Ticket ID",
+                "Issue Type",
+                "Distributor Name",
+                "Created Date",
+                "Assigned To",
+                "Priority",
+                "Current Status",
+                "Resolution Date",
+                "Resolution Notes"
+            ],
+
+            actions: [
+                "Add Ticket",
+                "Edit Ticket",
+                "Delete Ticket",
+                "Close Ticket"
+            ],
+
+            storageKey: "dsphere_ticket-resolution-tracking"
+        };
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="app.js"></script>
+<script src="notification-bell.js"></script>
+</body>
+</html>

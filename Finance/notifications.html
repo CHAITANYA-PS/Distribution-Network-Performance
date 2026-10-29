@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Finance Notifications | Dsphere</title>
+
+    <!-- Finance Manager shared CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Login/session validation -->
+    <script src="auth-check.js"></script>
+</head>
+
+<body data-section="notifications">
+
+    <!-- =====================================================
+         TOPBAR
+         ===================================================== -->
+    <header class="topbar">
+
+        <!-- Brand -->
+        <a
+            class="brand"
+            href="index.html"
+            aria-label="Go to Finance Manager dashboard"
+        >
+            <img
+                src="logo.png"
+                alt="Dsphere logo"
+            >
+
+            <div>
+                <strong>Dsphere</strong>
+
+                <small>
+                    Distributor Operations Management Platform
+                </small>
+            </div>
+        </a>
+
+        <!-- Global Search -->
+        <label class="global-search">
+            <span aria-hidden="true">⌕</span>
+
+            <input
+                type="search"
+                id="globalSearch"
+                placeholder="Search notifications, invoices, payments..."
+                aria-label="Search Finance Manager workspace"
+                autocomplete="off"
+            >
+        </label>
+
+        <!-- Profile Actions -->
+        <div class="profile">
+
+            <!--
+                Notification bell is visible.
+                Popup functionality is disabled on this page.
+            -->
+            <button
+                class="bell"
+                id="notificationBell"
+                type="button"
+                title="Notifications"
+                aria-label="Notifications"
+            >
+                🔔
+                <i id="notificationCount">8</i>
+            </button>
+
+            <!-- Avatar -->
+            <div
+                class="avatar"
+                data-avatar
+                title="Finance Manager"
+            >
+                FM
+            </div>
+
+            <!-- User Details -->
+            <span>
+                <strong data-user-name>
+                    Finance Manager
+                </strong>
+
+                <small data-user-role>
+                    Finance Operations
+                </small>
+            </span>
+
+            <!-- Logout -->
+            <button
+                class="logout-btn"
+                id="logoutButton"
+                type="button"
+                title="Logout from Dsphere"
+            >
+                <span class="logout-text">
+                    Logout
+                </span>
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         APPLICATION LAYOUT
+         ===================================================== -->
+    <div class="app">
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <!-- Dashboard -->
+                <a
+                    class="nav-link"
+                    href="dashboard.html"
+                >
+                    <span>⌂</span>
+                    <b>Dashboard Overview</b>
+                </a>
+
+                <!-- Receivables Management -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span>▣</span>
+                        <b>Receivables Management</b>
+                        <i>⌄</i>
+                    </button>
+
+                    <div
+                        class="sub-nav"
+                        hidden
+                    >
+                        <a href="payment-performance.html">
+                            Payment Performance
+                        </a>
+
+                        <a href="invoices-outstanding.html">
+                            Invoices &amp; Outstanding Amounts
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Credit Risk Analysis -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span>◇</span>
+                        <b>Credit Risk Analysis</b>
+                        <i>⌄</i>
+                    </button>
+
+                    <div
+                        class="sub-nav"
+                        hidden
+                    >
+                        <a href="distributor-credit-risk.html">
+                            Distributor Credit Risk
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Inventory Financials -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span>▤</span>
+                        <b>Inventory Financials</b>
+                        <i>⌄</i>
+                    </button>
+
+                    <div
+                        class="sub-nav"
+                        hidden
+                    >
+                        <a href="inventory-holding-cost.html">
+                            Inventory Holding Cost
+                        </a>
+
+                        <a href="inventory-turnover.html">
+                            Inventory Turnover
+                        </a>
+
+                        <a href="inventory-loss-management.html">
+                            Inventory Loss Management
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Working Capital -->
+                <a
+                    class="nav-link"
+                    href="working-capital-analysis.html"
+                >
+                    <span>◫</span>
+                    <b>Working Capital Analysis</b>
+                </a>
+
+                <!-- Dispute and Issue Resolution -->
+                <div class="nav-group">
+
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span>⚑</span>
+                        <b>Dispute &amp; Issue Resolution</b>
+                        <i>⌄</i>
+                    </button>
+
+                    <div
+                        class="sub-nav"
+                        hidden
+                    >
+                        <a href="financial-exceptions-disputes.html">
+                            Financial Exceptions &amp; Disputes
+                        </a>
+
+                        <a href="payment-evidence-documents.html">
+                            Payment Evidence &amp; Documents
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Reports -->
+                <a
+                    class="nav-link"
+                    href="reports-analytics.html"
+                >
+                    <span>▥</span>
+                    <b>Reports &amp; Analytics</b>
+                </a>
+
+                <!-- Notifications -->
+                <a
+                    class="nav-link active"
+                    href="notifications.html"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true">△</span>
+                    <b>Notifications</b>
+                </a>
+
+            </nav>
+
+            <footer>
+                Finance Manager Portal
+                <br>
+                Version 1.0.0
+                <br>
+                © 2026 Dsphere
+            </footer>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+        <main>
+
+            <!-- =================================================
+                 HERO
+                 ================================================= -->
+            <section class="hero">
+
+                <div>
+                    <p>FINANCE MESSAGE CENTER</p>
+
+                    <h1>Notifications</h1>
+
+                    <span>
+                        Review invoice approvals, overdue payments,
+                        credit risks, disputes and finance workflow updates.
+                    </span>
+                </div>
+
+                <div
+                    class="hero-badge"
+                    id="heroUnreadCount"
+                >
+                    8 unread notifications
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NOTIFICATION SUMMARY
+                 ================================================= -->
+            <section
+                class="stats"
+                aria-label="Finance notification summary"
+            >
+
+                <article>
+                    <i aria-hidden="true">●</i>
+
+                    <div>
+                        <small>Unread</small>
+                        <strong id="unreadStat">8</strong>
+                        <em class="alert">
+                            Requires attention
+                        </em>
+                    </div>
+                </article>
+
+                <article>
+                    <i aria-hidden="true">✓</i>
+
+                    <div>
+                        <small>Approval Requests</small>
+                        <strong>6</strong>
+                        <em class="alert">
+                            Awaiting review
+                        </em>
+                    </div>
+                </article>
+
+                <article>
+                    <i aria-hidden="true">₹</i>
+
+                    <div>
+                        <small>Payment Alerts</small>
+                        <strong>14</strong>
+                        <em>Due this week</em>
+                    </div>
+                </article>
+
+                <article>
+                    <i aria-hidden="true">↻</i>
+
+                    <div>
+                        <small>Dispute Updates</small>
+                        <strong>5</strong>
+                        <em>Updated this week</em>
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 FILTERS
+                 ================================================= -->
+            <section class="filter-panel">
+
+                <div>
+
+                    <!-- Search -->
+                    <label>
+                        Search notifications
+
+                        <input
+                            type="search"
+                            id="notificationSearch"
+                            placeholder="Search invoice, payment or reference..."
+                            autocomplete="off"
+                        >
+                    </label>
+
+                    <!-- Type Filter -->
+                    <label>
+                        Notification type
+
+                        <select id="typeFilter">
+                            <option value="all">
+                                All types
+                            </option>
+
+                            <option value="approval">
+                                Invoice Approval
+                            </option>
+
+                            <option value="payment">
+                                Payment
+                            </option>
+
+                            <option value="risk">
+                                Credit Risk
+                            </option>
+
+                            <option value="dispute">
+                                Payment Dispute
+                            </option>
+
+                            <option value="recovery">
+                                Recovery
+                            </option>
+
+                            <option value="working-capital">
+                                Working Capital
+                            </option>
+
+                            <option value="report">
+                                Report
+                            </option>
+                        </select>
+                    </label>
+
+                    <!-- Status Filter -->
+                    <label>
+                        Status
+
+                        <select id="statusFilter">
+                            <option value="all">
+                                All statuses
+                            </option>
+
+                            <option value="unread">
+                                Unread
+                            </option>
+
+                            <option value="read">
+                                Read
+                            </option>
+                        </select>
+                    </label>
+
+                    <!-- Date Filter -->
+                    <label>
+                        Date range
+
+                        <select id="dateFilter">
+                            <option value="all">
+                                All dates
+                            </option>
+
+                            <option value="today">
+                                Today
+                            </option>
+
+                            <option value="week">
+                                This week
+                            </option>
+
+                            <option value="month">
+                                This month
+                            </option>
+                        </select>
+                    </label>
+
+                </div>
+            </section>
+
+
+            <!-- =================================================
+                 NOTIFICATION TABLE
+                 ================================================= -->
+            <section
+                class="records-panel"
+                id="notificationRecords"
+            >
+
+                <div class="panel-head">
+
+                    <div>
+                        <h2>Finance Notifications</h2>
+
+                        <span id="notificationResultText">
+                            10 notifications found.
+                        </span>
+                    </div>
+
+                    <button
+                        class="outline-btn"
+                        id="markAllReadButton"
+                        type="button"
+                    >
+                        Mark All as Read
+                    </button>
+
+                </div>
+
+                <div class="table-wrap">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Reference</th>
+                                <th>Notification</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="notificationTableBody">
+
+                            <!-- Notification 1 -->
+                            <tr
+                                data-type="approval"
+                                data-status="unread"
+                                data-date="today"
+                                data-search="INV-2026-1048 invoice approval manufacturer amount 425000"
+                            >
+                                <td>Invoice Approval</td>
+
+                                <td>
+                                    <strong>
+                                        INV-2026-1048
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Invoice worth ₹4,25,000 is awaiting
+                                    Finance Manager approval.
+                                </td>
+
+                                <td>20 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 2 -->
+                            <tr
+                                data-type="payment"
+                                data-status="unread"
+                                data-date="today"
+                                data-search="PAY-88421 distributor payment overdue 12 days 185000"
+                            >
+                                <td>Payment</td>
+
+                                <td>
+                                    <strong>
+                                        PAY-88421
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Distributor payment of ₹1,85,000 has
+                                    been overdue for 12 days.
+                                </td>
+
+                                <td>20 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 3 -->
+                            <tr
+                                data-type="risk"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="CR-3019 credit risk distributor exposure threshold"
+                            >
+                                <td>Credit Risk</td>
+
+                                <td>
+                                    <strong>
+                                        CR-3019
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Distributor credit exposure has crossed
+                                    the approved risk threshold.
+                                </td>
+
+                                <td>19 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 4 -->
+                            <tr
+                                data-type="dispute"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="DSP-2208 payment dispute evidence distributor"
+                            >
+                                <td>Payment Dispute</td>
+
+                                <td>
+                                    <strong>
+                                        DSP-2208
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    New supporting evidence was submitted
+                                    for payment dispute DSP-2208.
+                                </td>
+
+                                <td>19 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 5 -->
+                            <tr
+                                data-type="recovery"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="RCV-1187 recovery resolution manufacturer review"
+                            >
+                                <td>Recovery</td>
+
+                                <td>
+                                    <strong>
+                                        RCV-1187
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Recovery case RCV-1187 has moved to
+                                    manufacturer review.
+                                </td>
+
+                                <td>18 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 6 -->
+                            <tr
+                                data-type="working-capital"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="WC-OCT-2026 working capital forecast october"
+                            >
+                                <td>Working Capital</td>
+
+                                <td>
+                                    <strong>
+                                        WC-OCT-2026
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    October working capital forecast requires
+                                    review before final submission.
+                                </td>
+
+                                <td>18 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 7 -->
+                            <tr
+                                data-type="approval"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="INV-2026-1036 invoice approval distributor 298000"
+                            >
+                                <td>Invoice Approval</td>
+
+                                <td>
+                                    <strong>
+                                        INV-2026-1036
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Distributor invoice for ₹2,98,000
+                                    requires financial validation.
+                                </td>
+
+                                <td>17 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 8 -->
+                            <tr
+                                data-type="payment"
+                                data-status="unread"
+                                data-date="week"
+                                data-search="PAY-88392 payment confirmation reconciliation bank"
+                            >
+                                <td>Payment</td>
+
+                                <td>
+                                    <strong>
+                                        PAY-88392
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Payment confirmation requires bank
+                                    reconciliation before posting.
+                                </td>
+
+                                <td>16 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong class="invoice-status">
+                                        Unread
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn mark-read-btn"
+                                        type="button"
+                                    >
+                                        Mark Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 9 -->
+                            <tr
+                                class="approved-row"
+                                data-type="report"
+                                data-status="read"
+                                data-date="month"
+                                data-search="FIN-RPT-SEP finance performance report september generated"
+                            >
+                                <td>Report</td>
+
+                                <td>
+                                    <strong>
+                                        FIN-RPT-SEP
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    September finance performance report
+                                    was generated successfully.
+                                </td>
+
+                                <td>15 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong style="color: var(--green);">
+                                        Read
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn"
+                                        type="button"
+                                        disabled
+                                    >
+                                        Read
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- Notification 10 -->
+                            <tr
+                                class="approved-row"
+                                data-type="approval"
+                                data-status="read"
+                                data-date="month"
+                                data-search="INV-2026-1014 approved payment processing"
+                            >
+                                <td>Invoice Approval</td>
+
+                                <td>
+                                    <strong>
+                                        INV-2026-1014
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    Invoice INV-2026-1014 was approved
+                                    and sent for payment processing.
+                                </td>
+
+                                <td>14 Oct 2026</td>
+
+                                <td class="notification-status">
+                                    <strong style="color: var(--green);">
+                                        Read
+                                    </strong>
+                                </td>
+
+                                <td class="approval-cell">
+                                    <button
+                                        class="approve-row-btn"
+                                        type="button"
+                                        disabled
+                                    >
+                                        Read
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+
+                    <button
+                        type="button"
+                        aria-label="Previous page"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        type="button"
+                        class="current"
+                    >
+                        1
+                    </button>
+
+                    <button type="button">
+                        2
+                    </button>
+
+                    <button
+                        type="button"
+                        aria-label="Next page"
+                    >
+                        ›
+                    </button>
+
+                </div>
+            </section>
+
+
+            <!-- =================================================
+                 PREFERENCES AND ACTIONS
+                 ================================================= -->
+            <section class="dashboard-grid">
+
+                <!-- Preferences -->
+                <article class="panel">
+
+                    <div class="panel-head">
+
+                        <div>
+                            <h2>Notification Preferences</h2>
+
+                            <span>
+                                Select the Finance Manager alerts
+                                you want to receive.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <form id="preferencesForm">
+
+                        <div class="form-grid">
+
+                            <label>
+                                <span>
+                                    Invoice approval requests
+                                </span>
+
+                                <select id="approvalPreference">
+                                    <option value="enabled">
+                                        Enabled
+                                    </option>
+
+                                    <option value="disabled">
+                                        Disabled
+                                    </option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>
+                                    Payment due alerts
+                                </span>
+
+                                <select id="paymentPreference">
+                                    <option value="enabled">
+                                        Enabled
+                                    </option>
+
+                                    <option value="disabled">
+                                        Disabled
+                                    </option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>
+                                    Credit risk alerts
+                                </span>
+
+                                <select id="riskPreference">
+                                    <option value="enabled">
+                                        Enabled
+                                    </option>
+
+                                    <option value="disabled">
+                                        Disabled
+                                    </option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>
+                                    Dispute and recovery updates
+                                </span>
+
+                                <select id="disputePreference">
+                                    <option value="enabled">
+                                        Enabled
+                                    </option>
+
+                                    <option value="disabled">
+                                        Disabled
+                                    </option>
+                                </select>
+                            </label>
+
+                        </div>
+
+                        <div class="dialog-actions">
+                            <button type="submit">
+                                Save Preferences
+                            </button>
+                        </div>
+
+                    </form>
+                </article>
+
+
+                <!-- Notification Actions -->
+                <article class="page-actions">
+
+                    <h2>Notification Actions</h2>
+
+                    <p>
+                        Export finance notification history or remove
+                        notifications that have already been read.
+                    </p>
+
+                    <div>
+                        <button
+                            type="button"
+                            id="exportNotificationsButton"
+                        >
+                            Export Notifications
+                        </button>
+
+                        <button
+                            type="button"
+                            id="clearReadButton"
+                        >
+                            Clear Read Messages
+                        </button>
+                    </div>
+
+                </article>
+
+            </section>
+
+        </main>
+    </div>
+
+
+    <!-- =====================================================
+         NOTIFICATION POPUP DISABLED
+
+         The popup panel and popup opening functionality have
+         been disabled so they cannot cover the page or block
+         the sidebar dropdown buttons.
+
+         <aside
+             class="notification-panel"
+             id="notificationPanel"
+         >
+             Popup content was here.
+         </aside>
+         ===================================================== -->
+
+
+    <!-- Toast Message -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- Existing project validation -->
+    <script src="validation.js"></script>
+
+
+    <!-- =====================================================
+         NOTIFICATION PAGE JAVASCRIPT
+         ===================================================== -->
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+                "use strict";
+
+                /* =============================================
+                   ELEMENT REFERENCES
+                   ============================================= */
+
+                const toast =
+                    document.getElementById(
+                        "toast"
+                    );
+
+                const notificationBell =
+                    document.getElementById(
+                        "notificationBell"
+                    );
+
+                const notificationCount =
+                    document.getElementById(
+                        "notificationCount"
+                    );
+
+                const unreadStat =
+                    document.getElementById(
+                        "unreadStat"
+                    );
+
+                const heroUnreadCount =
+                    document.getElementById(
+                        "heroUnreadCount"
+                    );
+
+                const notificationTableBody =
+                    document.getElementById(
+                        "notificationTableBody"
+                    );
+
+                const notificationSearch =
+                    document.getElementById(
+                        "notificationSearch"
+                    );
+
+                const globalSearch =
+                    document.getElementById(
+                        "globalSearch"
+                    );
+
+                const typeFilter =
+                    document.getElementById(
+                        "typeFilter"
+                    );
+
+                const statusFilter =
+                    document.getElementById(
+                        "statusFilter"
+                    );
+
+                const dateFilter =
+                    document.getElementById(
+                        "dateFilter"
+                    );
+
+                const markAllReadButton =
+                    document.getElementById(
+                        "markAllReadButton"
+                    );
+
+                const clearReadButton =
+                    document.getElementById(
+                        "clearReadButton"
+                    );
+
+                const exportNotificationsButton =
+                    document.getElementById(
+                        "exportNotificationsButton"
+                    );
+
+                const preferencesForm =
+                    document.getElementById(
+                        "preferencesForm"
+                    );
+
+                const logoutButton =
+                    document.getElementById(
+                        "logoutButton"
+                    );
+
+                const notificationResultText =
+                    document.getElementById(
+                        "notificationResultText"
+                    );
+
+
+                /* =============================================
+                   SIDEBAR DROPDOWNS
+                   ============================================= */
+
+                const navigationGroups =
+                    document.querySelectorAll(
+                        ".nav-group"
+                    );
+
+                navigationGroups.forEach(
+                    function (group) {
+                        const toggleButton =
+                            group.querySelector(
+                                ".nav-toggle"
+                            );
+
+                        const subNavigation =
+                            group.querySelector(
+                                ".sub-nav"
+                            );
+
+                        const arrow =
+                            toggleButton?.querySelector(
+                                "i"
+                            );
+
+                        if (
+                            !toggleButton ||
+                            !subNavigation
+                        ) {
+                            return;
+                        }
+
+                        toggleButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        subNavigation.hidden =
+                            true;
+
+                        subNavigation.style.display =
+                            "none";
+
+                        toggleButton.addEventListener(
+                            "click",
+                            function (event) {
+                                event.preventDefault();
+                                event.stopPropagation();
+
+                                const isOpen =
+                                    toggleButton.getAttribute(
+                                        "aria-expanded"
+                                    ) === "true";
+
+                                /*
+                                 * Close every other dropdown.
+                                 */
+                                navigationGroups.forEach(
+                                    function (
+                                        otherGroup
+                                    ) {
+                                        if (
+                                            otherGroup ===
+                                            group
+                                        ) {
+                                            return;
+                                        }
+
+                                        const otherButton =
+                                            otherGroup.querySelector(
+                                                ".nav-toggle"
+                                            );
+
+                                        const otherSubNavigation =
+                                            otherGroup.querySelector(
+                                                ".sub-nav"
+                                            );
+
+                                        const otherArrow =
+                                            otherButton
+                                                ?.querySelector(
+                                                    "i"
+                                                );
+
+                                        otherGroup.classList.remove(
+                                            "open"
+                                        );
+
+                                        otherButton?.setAttribute(
+                                            "aria-expanded",
+                                            "false"
+                                        );
+
+                                        if (
+                                            otherSubNavigation
+                                        ) {
+                                            otherSubNavigation.hidden =
+                                                true;
+
+                                            otherSubNavigation.style.display =
+                                                "none";
+                                        }
+
+                                        if (otherArrow) {
+                                            otherArrow.textContent =
+                                                "⌄";
+                                        }
+                                    }
+                                );
+
+                                /*
+                                 * Toggle selected dropdown.
+                                 */
+                                if (isOpen) {
+                                    group.classList.remove(
+                                        "open"
+                                    );
+
+                                    toggleButton.setAttribute(
+                                        "aria-expanded",
+                                        "false"
+                                    );
+
+                                    subNavigation.hidden =
+                                        true;
+
+                                    subNavigation.style.display =
+                                        "none";
+
+                                    if (arrow) {
+                                        arrow.textContent =
+                                            "⌄";
+                                    }
+                                } else {
+                                    group.classList.add(
+                                        "open"
+                                    );
+
+                                    toggleButton.setAttribute(
+                                        "aria-expanded",
+                                        "true"
+                                    );
+
+                                    subNavigation.hidden =
+                                        false;
+
+                                    subNavigation.style.display = "flex";
+subNavigation.style.flexDirection = "column";
+subNavigation.style.gap = "6px";
+
+                                    if (arrow) {
+                                        arrow.textContent =
+                                            "⌃";
+                                    }
+                                }
+                            }
+                        );
+                    }
+                );
+
+
+                /* =============================================
+                   NOTIFICATION POPUP DISABLED
+
+                   The old popup functions and event listeners
+                   are intentionally disabled.
+
+                   function openNotificationPanel() {}
+                   function closeNotifications() {}
+
+                   notificationBell.addEventListener(
+                       "click",
+                       openNotificationPanel
+                   );
+                   ============================================= */
+
+                /*
+                 * The bell remains visible but does not open
+                 * the popup. On this full notifications page,
+                 * it scrolls to the notification table instead.
+                 */
+                notificationBell?.addEventListener(
+                    "click",
+                    function () {
+                        document
+                            .getElementById(
+                                "notificationRecords"
+                            )
+                            ?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+                    }
+                );
+
+
+                /* =============================================
+                   TOAST MESSAGE
+                   ============================================= */
+
+                function showToast(
+                    message,
+                    isError = false
+                ) {
+                    if (!toast) {
+                        return;
+                    }
+
+                    toast.textContent =
+                        message;
+
+                    toast.classList.toggle(
+                        "error",
+                        isError
+                    );
+
+                    toast.classList.add(
+                        "show"
+                    );
+
+                    window.clearTimeout(
+                        showToast.timer
+                    );
+
+                    showToast.timer =
+                        window.setTimeout(
+                            function () {
+                                toast.classList.remove(
+                                    "show"
+                                );
+                            },
+                            2800
+                        );
+                }
+
+
+                /* =============================================
+                   UPDATE UNREAD COUNTS
+                   ============================================= */
+
+                function updateUnreadCount() {
+                    if (
+                        !notificationTableBody
+                    ) {
+                        return;
+                    }
+
+                    const unreadRows =
+                        notificationTableBody
+                            .querySelectorAll(
+                                'tr[data-status="unread"]'
+                            );
+
+                    const unreadCount =
+                        unreadRows.length;
+
+                    if (notificationCount) {
+                        notificationCount.textContent =
+                            unreadCount;
+
+                        notificationCount.classList.toggle(
+                            "zero",
+                            unreadCount === 0
+                        );
+
+                        notificationCount.style.display =
+                            unreadCount === 0
+                                ? "none"
+                                : "";
+                    }
+
+                    if (unreadStat) {
+                        unreadStat.textContent =
+                            unreadCount;
+                    }
+
+                    if (heroUnreadCount) {
+                        heroUnreadCount.textContent =
+                            unreadCount +
+                            (
+                                unreadCount === 1
+                                    ? " unread notification"
+                                    : " unread notifications"
+                            );
+                    }
+                }
+
+
+                /* =============================================
+                   SET ROW AS READ
+                   ============================================= */
+
+                function setRowAsRead(row) {
+                    if (!row) {
+                        return;
+                    }
+
+                    row.dataset.status =
+                        "read";
+
+                    row.classList.add(
+                        "approved-row"
+                    );
+
+                    const statusCell =
+                        row.querySelector(
+                            ".notification-status"
+                        );
+
+                    if (statusCell) {
+                        statusCell.innerHTML =
+                            '<strong style="color: var(--green);">Read</strong>';
+                    }
+
+                    const button =
+                        row.querySelector(
+                            ".mark-read-btn"
+                        );
+
+                    if (button) {
+                        button.textContent =
+                            "Read";
+
+                        button.disabled =
+                            true;
+
+                        button.classList.remove(
+                            "mark-read-btn"
+                        );
+                    }
+                }
+
+
+                /* =============================================
+                   MARK ONE NOTIFICATION AS READ
+                   ============================================= */
+
+                notificationTableBody
+                    ?.addEventListener(
+                        "click",
+                        function (event) {
+                            const button =
+                                event.target.closest(
+                                    ".mark-read-btn"
+                                );
+
+                            if (!button) {
+                                return;
+                            }
+
+                            const row =
+                                button.closest("tr");
+
+                            setRowAsRead(row);
+                            updateUnreadCount();
+                            applyNotificationFilters();
+
+                            showToast(
+                                "Finance notification marked as read."
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   SELECT TABLE ROW
+                   ============================================= */
+
+                notificationTableBody
+                    ?.addEventListener(
+                        "click",
+                        function (event) {
+                            if (
+                                event.target.closest(
+                                    "button"
+                                )
+                            ) {
+                                return;
+                            }
+
+                            const selectedRow =
+                                event.target.closest(
+                                    "tr"
+                                );
+
+                            if (!selectedRow) {
+                                return;
+                            }
+
+                            notificationTableBody
+                                .querySelectorAll(
+                                    "tr"
+                                )
+                                .forEach(
+                                    function (row) {
+                                        row.classList.remove(
+                                            "selected"
+                                        );
+                                    }
+                                );
+
+                            selectedRow.classList.add(
+                                "selected"
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   MARK ALL AS READ
+                   ============================================= */
+
+                markAllReadButton
+                    ?.addEventListener(
+                        "click",
+                        function () {
+                            if (
+                                !notificationTableBody
+                            ) {
+                                return;
+                            }
+
+                            const unreadRows =
+                                notificationTableBody
+                                    .querySelectorAll(
+                                        'tr[data-status="unread"]'
+                                    );
+
+                            if (
+                                unreadRows.length === 0
+                            ) {
+                                showToast(
+                                    "All notifications are already read."
+                                );
+
+                                return;
+                            }
+
+                            unreadRows.forEach(
+                                setRowAsRead
+                            );
+
+                            updateUnreadCount();
+                            applyNotificationFilters();
+
+                            showToast(
+                                "All finance notifications marked as read."
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   SEARCH AND FILTER NOTIFICATIONS
+                   ============================================= */
+
+                function applyNotificationFilters() {
+                    if (
+                        !notificationTableBody
+                    ) {
+                        return;
+                    }
+
+                    const searchValue =
+                        notificationSearch
+                            ?.value
+                            .trim()
+                            .toLowerCase() ||
+                        "";
+
+                    const selectedType =
+                        typeFilter?.value ||
+                        "all";
+
+                    const selectedStatus =
+                        statusFilter?.value ||
+                        "all";
+
+                    const selectedDate =
+                        dateFilter?.value ||
+                        "all";
+
+                    const rows =
+                        notificationTableBody
+                            .querySelectorAll(
+                                "tr"
+                            );
+
+                    let visibleCount = 0;
+
+                    rows.forEach(
+                        function (row) {
+                            const searchContent =
+                                (
+                                    (
+                                        row.dataset
+                                            .search ||
+                                        ""
+                                    ) +
+                                    " " +
+                                    row.textContent
+                                ).toLowerCase();
+
+                            const matchesSearch =
+                                searchContent.includes(
+                                    searchValue
+                                );
+
+                            const matchesType =
+                                selectedType ===
+                                    "all" ||
+                                row.dataset.type ===
+                                    selectedType;
+
+                            const matchesStatus =
+                                selectedStatus ===
+                                    "all" ||
+                                row.dataset.status ===
+                                    selectedStatus;
+
+                            let matchesDate =
+                                selectedDate ===
+                                "all";
+
+                            if (
+                                selectedDate ===
+                                "today"
+                            ) {
+                                matchesDate =
+                                    row.dataset.date ===
+                                    "today";
+                            } else if (
+                                selectedDate ===
+                                "week"
+                            ) {
+                                matchesDate =
+                                    row.dataset.date ===
+                                        "today" ||
+                                    row.dataset.date ===
+                                        "week";
+                            } else if (
+                                selectedDate ===
+                                "month"
+                            ) {
+                                matchesDate =
+                                    true;
+                            }
+
+                            const shouldShow =
+                                matchesSearch &&
+                                matchesType &&
+                                matchesStatus &&
+                                matchesDate;
+
+                            row.style.display =
+                                shouldShow
+                                    ? ""
+                                    : "none";
+
+                            if (shouldShow) {
+                                visibleCount += 1;
+                            }
+                        }
+                    );
+
+                    if (
+                        notificationResultText
+                    ) {
+                        notificationResultText.textContent =
+                            visibleCount === 1
+                                ? "1 notification found."
+                                : visibleCount +
+                                  " notifications found.";
+                    }
+                }
+
+                notificationSearch
+                    ?.addEventListener(
+                        "input",
+                        applyNotificationFilters
+                    );
+
+                typeFilter?.addEventListener(
+                    "change",
+                    applyNotificationFilters
+                );
+
+                statusFilter?.addEventListener(
+                    "change",
+                    applyNotificationFilters
+                );
+
+                dateFilter?.addEventListener(
+                    "change",
+                    applyNotificationFilters
+                );
+
+
+                /* =============================================
+                   GLOBAL SEARCH
+                   ============================================= */
+
+                globalSearch?.addEventListener(
+                    "input",
+                    function () {
+                        if (
+                            !notificationSearch
+                        ) {
+                            return;
+                        }
+
+                        notificationSearch.value =
+                            globalSearch.value;
+
+                        applyNotificationFilters();
+                    }
+                );
+
+
+                /* =============================================
+                   HERO UNREAD BUTTON
+                   ============================================= */
+
+                heroUnreadCount?.addEventListener(
+                    "click",
+                    function () {
+                        if (statusFilter) {
+                            statusFilter.value =
+                                "unread";
+                        }
+
+                        applyNotificationFilters();
+
+                        document
+                            .getElementById(
+                                "notificationRecords"
+                            )
+                            ?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+                    }
+                );
+
+
+                /* =============================================
+                   SAVE PREFERENCES
+                   ============================================= */
+
+                preferencesForm
+                    ?.addEventListener(
+                        "submit",
+                        function (event) {
+                            event.preventDefault();
+
+                            const preferences = {
+                                approval:
+                                    document
+                                        .getElementById(
+                                            "approvalPreference"
+                                        )
+                                        ?.value ||
+                                    "enabled",
+
+                                payment:
+                                    document
+                                        .getElementById(
+                                            "paymentPreference"
+                                        )
+                                        ?.value ||
+                                    "enabled",
+
+                                risk:
+                                    document
+                                        .getElementById(
+                                            "riskPreference"
+                                        )
+                                        ?.value ||
+                                    "enabled",
+
+                                dispute:
+                                    document
+                                        .getElementById(
+                                            "disputePreference"
+                                        )
+                                        ?.value ||
+                                    "enabled"
+                            };
+
+                            localStorage.setItem(
+                                "dsphereFinanceNotificationPreferences",
+                                JSON.stringify(
+                                    preferences
+                                )
+                            );
+
+                            showToast(
+                                "Finance notification preferences saved."
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   RESTORE PREFERENCES
+                   ============================================= */
+
+                function restorePreferences() {
+                    const savedPreferences =
+                        localStorage.getItem(
+                            "dsphereFinanceNotificationPreferences"
+                        );
+
+                    if (!savedPreferences) {
+                        return;
+                    }
+
+                    try {
+                        const preferences =
+                            JSON.parse(
+                                savedPreferences
+                            );
+
+                        const approvalPreference =
+                            document.getElementById(
+                                "approvalPreference"
+                            );
+
+                        const paymentPreference =
+                            document.getElementById(
+                                "paymentPreference"
+                            );
+
+                        const riskPreference =
+                            document.getElementById(
+                                "riskPreference"
+                            );
+
+                        const disputePreference =
+                            document.getElementById(
+                                "disputePreference"
+                            );
+
+                        if (
+                            approvalPreference
+                        ) {
+                            approvalPreference.value =
+                                preferences.approval ||
+                                "enabled";
+                        }
+
+                        if (
+                            paymentPreference
+                        ) {
+                            paymentPreference.value =
+                                preferences.payment ||
+                                "enabled";
+                        }
+
+                        if (riskPreference) {
+                            riskPreference.value =
+                                preferences.risk ||
+                                "enabled";
+                        }
+
+                        if (
+                            disputePreference
+                        ) {
+                            disputePreference.value =
+                                preferences.dispute ||
+                                "enabled";
+                        }
+                    } catch (error) {
+                        console.error(
+                            "Unable to restore finance preferences:",
+                            error
+                        );
+                    }
+                }
+
+
+                /* =============================================
+                   CLEAR READ NOTIFICATIONS
+                   ============================================= */
+
+                clearReadButton
+                    ?.addEventListener(
+                        "click",
+                        function () {
+                            if (
+                                !notificationTableBody
+                            ) {
+                                return;
+                            }
+
+                            const readRows =
+                                notificationTableBody
+                                    .querySelectorAll(
+                                        'tr[data-status="read"]'
+                                    );
+
+                            if (
+                                readRows.length === 0
+                            ) {
+                                showToast(
+                                    "There are no read notifications to clear."
+                                );
+
+                                return;
+                            }
+
+                            readRows.forEach(
+                                function (row) {
+                                    row.remove();
+                                }
+                            );
+
+                            updateUnreadCount();
+                            applyNotificationFilters();
+
+                            showToast(
+                                "Read finance notifications cleared."
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   EXPORT NOTIFICATIONS
+                   ============================================= */
+
+                exportNotificationsButton
+                    ?.addEventListener(
+                        "click",
+                        function () {
+                            if (
+                                !notificationTableBody
+                            ) {
+                                return;
+                            }
+
+                            const rows =
+                                notificationTableBody
+                                    .querySelectorAll(
+                                        "tr"
+                                    );
+
+                            if (
+                                rows.length === 0
+                            ) {
+                                showToast(
+                                    "There are no notifications to export.",
+                                    true
+                                );
+
+                                return;
+                            }
+
+                            const csvRows = [
+                                [
+                                    "Category",
+                                    "Reference",
+                                    "Notification",
+                                    "Date",
+                                    "Status"
+                                ]
+                            ];
+
+                            rows.forEach(
+                                function (row) {
+                                    const cells =
+                                        row.querySelectorAll(
+                                            "td"
+                                        );
+
+                                    if (
+                                        cells.length <
+                                        5
+                                    ) {
+                                        return;
+                                    }
+
+                                    csvRows.push([
+                                        cells[0]
+                                            .textContent
+                                            .trim(),
+
+                                        cells[1]
+                                            .textContent
+                                            .trim(),
+
+                                        cells[2]
+                                            .textContent
+                                            .trim(),
+
+                                        cells[3]
+                                            .textContent
+                                            .trim(),
+
+                                        row.dataset
+                                            .status ||
+                                            ""
+                                    ]);
+                                }
+                            );
+
+                            const csvContent =
+                                "\uFEFF" +
+                                csvRows
+                                    .map(
+                                        function (row) {
+                                            return row
+                                                .map(
+                                                    function (
+                                                        value
+                                                    ) {
+                                                        const safeValue =
+                                                            String(
+                                                                value
+                                                            ).replace(
+                                                                /"/g,
+                                                                '""'
+                                                            );
+
+                                                        return (
+                                                            '"' +
+                                                            safeValue +
+                                                            '"'
+                                                        );
+                                                    }
+                                                )
+                                                .join(",");
+                                        }
+                                    )
+                                    .join("\n");
+
+                            const csvBlob =
+                                new Blob(
+                                    [csvContent],
+                                    {
+                                        type:
+                                            "text/csv;charset=utf-8;"
+                                    }
+                                );
+
+                            const downloadUrl =
+                                URL.createObjectURL(
+                                    csvBlob
+                                );
+
+                            const downloadLink =
+                                document.createElement(
+                                    "a"
+                                );
+
+                            downloadLink.href =
+                                downloadUrl;
+
+                            downloadLink.download =
+                                "dsphere-finance-notifications.csv";
+
+                            document.body.appendChild(
+                                downloadLink
+                            );
+
+                            downloadLink.click();
+                            downloadLink.remove();
+
+                            URL.revokeObjectURL(
+                                downloadUrl
+                            );
+
+                            showToast(
+                                "Finance notification report downloaded."
+                            );
+                        }
+                    );
+
+
+                /* =============================================
+                   LOGOUT
+                   ============================================= */
+
+                logoutButton?.addEventListener(
+                    "click",
+                    function () {
+                        sessionStorage.clear();
+
+                        showToast(
+                            "Logged out successfully."
+                        );
+
+                        window.setTimeout(
+                            function () {
+                                window.location.href =
+                                    "../index.html";
+                            },
+                            800
+                        );
+                    }
+                );
+
+
+                /* =============================================
+                   INITIAL PAGE SETUP
+                   ============================================= */
+
+                restorePreferences();
+                updateUnreadCount();
+                applyNotificationFilters();
+            }
+        );
+    </script>
+
+</body>
+</html>

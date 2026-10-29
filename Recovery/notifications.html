@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>Recovery Notifications | Dsphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="auth-check.js"></script>
+</head>
+
+<body data-section="notifications">
+  <header class="topbar">
+    <a class="brand" href="dashboard.html" aria-label="Go to Finance Manager dashboard">
+      <img class="brand-logo" src="assets/logo.png" alt="Dsphere logo">
+      <div>
+        <b>Dsphere</b>
+        <small>Distributor Operations Management Platform</small>
+      </div>
+    </a>
+
+    <input
+      class="global-search"
+      id="globalSearch"
+      type="search"
+      placeholder="Search notifications, invoices, payments..."
+      aria-label="Search Recovery & Resolution Manager workspace"
+      autocomplete="off"
+    >
+
+    <div class="profile">
+      <div class="notification" id="notificationWrapper">
+        <button
+          class="bell"
+          id="notificationBell"
+          type="button"
+          title="Open notifications"
+          aria-label="Open notifications"
+          aria-expanded="false"
+          aria-controls="notificationMenu"
+        >
+          🔔
+          <i class="bell-count" id="notificationCount">8</i>
+        </button>
+
+        <div class="notification-menu" id="notificationMenu" aria-label="Recent Recovery notifications">
+          <div>
+            <b>Invoice approval required</b>
+            <p class="mini">INV-2026-1048 for ₹4,25,000 requires your approval.</p>
+          </div>
+          <div>
+            <b>Payment overdue</b>
+            <p class="mini">PAY-88421 has been overdue for 12 days.</p>
+          </div>
+          <div>
+            <b>Credit risk threshold exceeded</b>
+            <p class="mini">Distributor exposure requires Recovery Manager review.</p>
+          </div>
+          <div>
+            <button class="outline" id="viewAllNotifications" type="button">
+              View All Notifications
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <span class="avatar" data-avatar title="Recovery Manager">RM</span>
+
+      <div>
+        <strong data-user-name>Recovery Manager</strong>
+        <small data-user-role>Recovery Operations</small>
+      </div>
+
+      <a
+        class="logout-button"
+        href="../index.html"
+        title="Logout from Dsphere"
+        </span>
+
+        <span class="logout-text">
+          Logout
+        </span>
+      </a>
+
+  </header>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <nav class="side-nav"><a class="nav-main " href="dashboard-overview.html"><span class="nav-icon">⌂</span>Dashboard Overview</a><a class="nav-main " href="recovery-mode.html"><span class="nav-icon">↻</span>Recovery Management</a><a class="nav-main " href="exception-tickets.html"><span class="nav-icon">▣</span>Ticket Management</a><a class="nav-main " href="dispute-management.html"><span class="nav-icon">◇</span>Dispute Management</a><a class="nav-main " href="investigation-center.html"><span class="nav-icon">⌕</span>Investigation Center</a><a class="nav-main " href="sla-ticket-aging.html"><span class="nav-icon">◷</span>SLA & Escalation</a><a class="nav-main " href="communication-history.html"><span class="nav-icon">✉</span>Communication History</a><a class="nav-main " href="resolution-validation.html"><span class="nav-icon">✓</span>Resolution Validation</a><a class="nav-main " href="operational-reports.html"><span class="nav-icon">▤</span>Reports & Analytics</a> <a
+        class="nav-main "
+        href="notifications.html"
+        aria-current="page"
+    >
+        <span class="nav-icon">△</span>
+        <span>Notifications</span>
+    </a></nav>
+      <div class="side-foot">
+        Recovery Manager Portal<br>
+        Version 1.0.0<br>
+        © 2026 Dsphere
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Recovery Message Center</p>
+          <h1>Notifications</h1>
+          <p>
+            Review invoice approvals, overdue payments, credit risks,
+            disputes and finance workflow updates.
+          </p>
+        </div>
+
+        <button id="heroUnreadCount" type="button">8 unread notifications</button>
+      </section>
+
+      <section class="kpi-grid" aria-label="Recovery notification summary">
+        <article class="kpi danger">
+          <span class="metric-icon" aria-hidden="true">●</span>
+          <div>
+            <small>Unread</small>
+            <strong id="unreadStat">8</strong>
+            <span class="mini">Requires attention</span>
+          </div>
+        </article>
+
+        <article class="kpi warning">
+          <span class="metric-icon" aria-hidden="true">✓</span>
+          <div>
+            <small>Approval Requests</small>
+            <strong>6</strong>
+            <span class="mini">Awaiting review</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <span class="metric-icon" aria-hidden="true">₹</span>
+          <div>
+            <small>Payment Alerts</small>
+            <strong>14</strong>
+            <span class="mini">Due this week</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <span class="metric-icon" aria-hidden="true">↻</span>
+          <div>
+            <small>Dispute Updates</small>
+            <strong>5</strong>
+            <span class="mini">Updated this week</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="filters">
+          <input
+            id="notificationSearch"
+            type="search"
+            placeholder="Search invoice, payment or reference..."
+            aria-label="Search notifications"
+            autocomplete="off"
+          >
+
+          <select id="typeFilter" aria-label="Notification type">
+            <option value="all">All types</option>
+            <option value="approval">Invoice Approval</option>
+            <option value="payment">Payment</option>
+            <option value="risk">Credit Risk</option>
+            <option value="dispute">Payment Dispute</option>
+            <option value="recovery">Recovery</option>
+            <option value="working-capital">Working Capital</option>
+            <option value="report">Report</option>
+          </select>
+
+          <select id="statusFilter" aria-label="Status">
+            <option value="all">All statuses</option>
+            <option value="unread">Unread</option>
+            <option value="read">Read</option>
+          </select>
+
+          <select id="dateFilter" aria-label="Date range">
+            <option value="all">All dates</option>
+            <option value="today">Today</option>
+            <option value="week">This week</option>
+            <option value="month">This month</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="card records-panel">
+        <div class="chart-title">
+          <div>
+            <h2>Recovery Notifications</h2>
+            <span class="mini" id="notificationResultText">10 notifications found.</span>
+          </div>
+
+          <button class="outline" id="markAllReadButton" type="button">
+            Mark All as Read
+          </button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Reference</th>
+                <th>Notification</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="notificationTableBody">
+              <tr data-type="approval" data-status="unread" data-date="today" data-search="INV-2026-1048 invoice approval manufacturer amount 425000">
+                <td>Invoice Approval</td><td><strong>INV-2026-1048</strong></td><td>Invoice worth ₹4,25,000 is awaiting Finance Manager approval.</td><td>20 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="payment" data-status="unread" data-date="today" data-search="PAY-88421 distributor payment overdue 12 days 185000">
+                <td>Payment</td><td><strong>PAY-88421</strong></td><td>Distributor payment of ₹1,85,000 has been overdue for 12 days.</td><td>20 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="risk" data-status="unread" data-date="week" data-search="CR-3019 credit risk distributor exposure threshold">
+                <td>Credit Risk</td><td><strong>CR-3019</strong></td><td>Distributor credit exposure has crossed the approved risk threshold.</td><td>19 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="dispute" data-status="unread" data-date="week" data-search="DSP-2208 payment dispute evidence distributor">
+                <td>Payment Dispute</td><td><strong>DSP-2208</strong></td><td>New supporting evidence was submitted for payment dispute DSP-2208.</td><td>19 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="recovery" data-status="unread" data-date="week" data-search="RCV-1187 recovery resolution manufacturer review">
+                <td>Recovery</td><td><strong>RCV-1187</strong></td><td>Recovery case RCV-1187 has moved to manufacturer review.</td><td>18 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="working-capital" data-status="unread" data-date="week" data-search="WC-OCT-2026 working capital forecast october">
+                <td>Working Capital</td><td><strong>WC-OCT-2026</strong></td><td>October working capital forecast requires review before final submission.</td><td>18 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="approval" data-status="unread" data-date="week" data-search="INV-2026-1036 invoice approval distributor 298000">
+                <td>Invoice Approval</td><td><strong>INV-2026-1036</strong></td><td>Distributor invoice for ₹2,98,000 requires financial validation.</td><td>17 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="payment" data-status="unread" data-date="week" data-search="PAY-88394 payment confirmation distributor 156000">
+                <td>Payment</td><td><strong>PAY-88394</strong></td><td>Payment confirmation of ₹1,56,000 requires reconciliation.</td><td>16 Oct 2026</td><td class="notification-status"><span class="badge warn">Unread</span></td><td><button class="mark-read-btn" type="button">Mark Read</button></td>
+              </tr>
+              <tr data-type="report" data-status="read" data-date="month" data-search="FIN-RPT-SEP finance performance report september generated">
+                <td>Report</td><td><strong>FIN-RPT-SEP</strong></td><td>September finance performance report was generated successfully.</td><td>15 Oct 2026</td><td class="notification-status"><span class="badge">Read</span></td><td><button type="button" disabled>Read</button></td>
+              </tr>
+              <tr data-type="approval" data-status="read" data-date="month" data-search="INV-2026-1014 approved payment processing">
+                <td>Invoice Approval</td><td><strong>INV-2026-1014</strong></td><td>Invoice INV-2026-1014 was approved and sent for payment processing.</td><td>14 Oct 2026</td><td class="notification-status"><span class="badge">Read</span></td><td><button type="button" disabled>Read</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top: 18px;">
+        <article class="card">
+          <h2>Notification Preferences</h2>
+          <p class="mini">Select the Recovery Manager alerts you want to receive.</p>
+
+          <form id="preferencesForm">
+            <div class="form-grid">
+              <label for="approvalPreference">Invoice approval requests</label>
+              <select id="approvalPreference" name="approvalPreference">
+                <option value="enabled">Enabled</option>
+                <option value="disabled">Disabled</option>
+              </select>
+
+              <label for="paymentPreference">Payment due alerts</label>
+              <select id="paymentPreference" name="paymentPreference">
+                <option value="enabled">Enabled</option>
+                <option value="disabled">Disabled</option>
+              </select>
+
+              <label for="riskPreference">Credit risk alerts</label>
+              <select id="riskPreference" name="riskPreference">
+                <option value="enabled">Enabled</option>
+                <option value="disabled">Disabled</option>
+              </select>
+
+              <label for="disputePreference">Dispute and recovery updates</label>
+              <select id="disputePreference" name="disputePreference">
+                <option value="enabled">Enabled</option>
+                <option value="disabled">Disabled</option>
+              </select>
+            </div>
+
+            <div class="actions">
+              <button type="submit">Save Preferences</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Notification Actions</h2>
+          <p>Export Recovery notification history or remove notifications that have already been read.</p>
+
+          <div class="actions">
+            <button type="button" id="exportNotificationsButton">Export Notifications</button>
+            <button class="outline" type="button" id="clearReadButton">Clear Read Messages</button>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    Empowering Distributors &nbsp;|&nbsp; Enabling Sustainable Growth
+  </footer>
+
+  <script src="validation.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const notificationWrapper = document.getElementById('notificationWrapper');
+      const notificationBell = document.getElementById('notificationBell');
+      const notificationMenu = document.getElementById('notificationMenu');
+      const tableBody = document.getElementById('notificationTableBody');
+      const notificationSearch = document.getElementById('notificationSearch');
+      const globalSearch = document.getElementById('globalSearch');
+      const typeFilter = document.getElementById('typeFilter');
+      const statusFilter = document.getElementById('statusFilter');
+      const dateFilter = document.getElementById('dateFilter');
+
+      function showMessage(message, type) {
+        document.querySelector('.form-status-message[data-toast="true"]')?.remove();
+        const messageBox = document.createElement('div');
+        messageBox.className = 'form-status-message ' + (type || 'success');
+        messageBox.dataset.toast = 'true';
+        messageBox.setAttribute('role', 'status');
+        messageBox.innerHTML = '<span>' + message + '</span>';
+        messageBox.style.position = 'fixed';
+        messageBox.style.right = '20px';
+        messageBox.style.bottom = '20px';
+        messageBox.style.zIndex = '1000';
+        document.body.appendChild(messageBox);
+        setTimeout(function () { messageBox.remove(); }, 2800);
+      }
+
+      function closeNotificationMenu() {
+        notificationWrapper.classList.remove('open');
+        notificationBell.setAttribute('aria-expanded', 'false');
+      }
+
+      notificationBell.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const isOpen = notificationWrapper.classList.toggle('open');
+        notificationBell.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      notificationMenu.addEventListener('click', function (event) {
+        event.stopPropagation();
+      });
+
+      document.addEventListener('click', closeNotificationMenu);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeNotificationMenu();
+      });
+
+      document.getElementById('viewAllNotifications').addEventListener('click', function () {
+        closeNotificationMenu();
+        document.querySelector('.records-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      function updateUnreadCount() {
+        const count = tableBody.querySelectorAll('tr[data-status="unread"]').length;
+        document.getElementById('notificationCount').textContent = count;
+        document.getElementById('unreadStat').textContent = count;
+        document.getElementById('heroUnreadCount').textContent = count + (count === 1 ? ' unread notification' : ' unread notifications');
+      }
+
+      function setRowRead(row) {
+        row.dataset.status = 'read';
+        row.querySelector('.notification-status').innerHTML = '<span class="badge">Read</span>';
+        const button = row.querySelector('.mark-read-btn');
+        if (button) {
+          button.textContent = 'Read';
+          button.disabled = true;
+          button.classList.remove('mark-read-btn');
+        }
+      }
+
+      tableBody.addEventListener('click', function (event) {
+        const button = event.target.closest('.mark-read-btn');
+        if (!button) return;
+        setRowRead(button.closest('tr'));
+        updateUnreadCount();
+        applyFilters();
+        showMessage('Finance notification marked as read.', 'success');
+      });
+
+      document.getElementById('markAllReadButton').addEventListener('click', function () {
+        const unreadRows = tableBody.querySelectorAll('tr[data-status="unread"]');
+        if (!unreadRows.length) {
+          showMessage('All notifications are already read.', 'info');
+          return;
+        }
+        unreadRows.forEach(setRowRead);
+        updateUnreadCount();
+        applyFilters();
+        showMessage('All finance notifications marked as read.', 'success');
+      });
+
+      function applyFilters() {
+        const term = notificationSearch.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        tableBody.querySelectorAll('tr').forEach(function (row) {
+          const content = ((row.dataset.search || '') + ' ' + row.textContent).toLowerCase();
+          const matchesSearch = content.includes(term);
+          const matchesType = typeFilter.value === 'all' || row.dataset.type === typeFilter.value;
+          const matchesStatus = statusFilter.value === 'all' || row.dataset.status === statusFilter.value;
+          const matchesDate =
+            dateFilter.value === 'all' ||
+            dateFilter.value === 'month' ||
+            row.dataset.date === dateFilter.value ||
+            (dateFilter.value === 'week' && row.dataset.date === 'today');
+
+          const visible = matchesSearch && matchesType && matchesStatus && matchesDate;
+          row.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        document.getElementById('notificationResultText').textContent =
+          visibleCount + (visibleCount === 1 ? ' notification found.' : ' notifications found.');
+      }
+
+      notificationSearch.addEventListener('input', applyFilters);
+      typeFilter.addEventListener('change', applyFilters);
+      statusFilter.addEventListener('change', applyFilters);
+      dateFilter.addEventListener('change', applyFilters);
+
+      globalSearch.addEventListener('input', function () {
+        notificationSearch.value = globalSearch.value;
+        applyFilters();
+      });
+
+      document.getElementById('preferencesForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const preferences = {
+          approval: document.getElementById('approvalPreference').value,
+          payment: document.getElementById('paymentPreference').value,
+          risk: document.getElementById('riskPreference').value,
+          dispute: document.getElementById('disputePreference').value
+        };
+        localStorage.setItem('dsphereFinanceNotificationPreferences', JSON.stringify(preferences));
+        showMessage('Finance notification preferences saved.', 'success');
+      });
+
+      try {
+        const saved = JSON.parse(localStorage.getItem('dsphereFinanceNotificationPreferences'));
+        if (saved) {
+          document.getElementById('approvalPreference').value = saved.approval || 'enabled';
+          document.getElementById('paymentPreference').value = saved.payment || 'enabled';
+          document.getElementById('riskPreference').value = saved.risk || 'enabled';
+          document.getElementById('disputePreference').value = saved.dispute || 'enabled';
+        }
+      } catch (error) {
+        console.error('Unable to restore notification preferences:', error);
+      }
+
+      document.getElementById('clearReadButton').addEventListener('click', function () {
+        const readRows = tableBody.querySelectorAll('tr[data-status="read"]');
+        if (!readRows.length) {
+          showMessage('There are no read notifications to clear.', 'info');
+          return;
+        }
+        readRows.forEach(function (row) { row.remove(); });
+        updateUnreadCount();
+        applyFilters();
+        showMessage('Read finance notifications cleared.', 'success');
+      });
+
+      document.getElementById('exportNotificationsButton').addEventListener('click', function () {
+        const rows = tableBody.querySelectorAll('tr');
+        if (!rows.length) {
+          showMessage('There are no notifications to export.', 'error');
+          return;
+        }
+
+        const csv = [['Category', 'Reference', 'Notification', 'Date', 'Status']];
+        rows.forEach(function (row) {
+          const cells = row.querySelectorAll('td');
+          csv.push([
+            cells[0].textContent.trim(),
+            cells[1].textContent.trim(),
+            cells[2].textContent.trim(),
+            cells[3].textContent.trim(),
+            row.dataset.status
+          ]);
+        });
+
+        const content = '﻿' + csv.map(function (row) {
+          return row.map(function (value) {
+            return '"' + String(value).replace(/"/g, '""') + '"';
+          }).join(',');
+        }).join('
+');
+
+        const url = URL.createObjectURL(new Blob([content], { type: 'text/csv;charset=utf-8;' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'dsphere-finance-notifications.csv';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        showMessage('Finance notification report downloaded.', 'success');
+      });
+
+      document.getElementById('logoutButton').addEventListener('click', function () {
+        sessionStorage.clear();
+        showMessage('Logged out successfully.', 'success');
+        setTimeout(function () {
+          window.location.href = '../index.html';
+        }, 800);
+      });
+
+      updateUnreadCount();
+      applyFilters();
+    });
+  </script>
+<script src="notification-bell.js"></script>
+</body>
+</html>

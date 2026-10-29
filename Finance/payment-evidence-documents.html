@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
+
+    <meta
+        name="description"
+        content="Dsphere Finance Manager - Payment Evidence & Documents"
+    />
+
+    <title>Payment Evidence & Documents | Dsphere</title>
+
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body data-section="disputes">
+
+    <!-- Top Header -->
+    <header class="topbar">
+
+        <a class="brand" href="dashboard.html">
+            <img
+                src="logo.png"
+                alt="Dsphere logo"
+            />
+
+            <span>
+                <strong>Dsphere</strong>
+                <small>Distributor Operations Management Platform</small>
+            </span>
+        </a>
+
+        <label class="global-search">
+            <span>⌕</span>
+
+            <input
+                id="globalSearch"
+                type="search"
+                placeholder="Search current page..."
+            />
+        </label>
+
+        <div class="profile">
+
+            <span
+    class="bell"
+    role="button"
+    tabindex="0"
+    aria-label="Open notifications"
+>
+    🔔
+</span>
+
+            <span class="avatar">FM</span>
+
+            <span>
+                <b>Finance Manager</b>
+                <small>Finance Operations</small>
+            </span>
+
+            <button
+                id="logoutButton"
+                class="logout-btn"
+                type="button"
+                title="Logout"
+            >
+                Logout
+            </button>
+
+        </div>
+    </header>
+
+    <!-- Application Layout -->
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+           <nav>
+    <a class="nav-link" href="dashboard.html">
+        <span>⌂</span>
+        <b>Dashboard Overview</b>
+    </a>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>▣</span>
+            <b>Receivables Management</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="payment-performance.html">
+                Payment Performance
+            </a>
+
+            <a href="invoices-outstanding.html">
+                Invoices &amp; Outstanding Amounts
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>◇</span>
+            <b>Credit Risk Analysis</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="distributor-credit-risk.html">
+                Distributor Credit Risk
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>▤</span>
+            <b>Inventory Financials</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="inventory-holding-cost.html">
+                Inventory Holding Cost
+            </a>
+
+            <a href="inventory-turnover.html">
+                Inventory Turnover
+            </a>
+
+            <a href="inventory-loss-management.html">
+                Inventory Loss Management
+            </a>
+        </div>
+    </div>
+
+    <a class="nav-link" href="working-capital-analysis.html">
+        <span>◫</span>
+        <b>Working Capital Analysis</b>
+    </a>
+
+    <div class="nav-group open">
+        <button
+            class="nav-toggle active"
+            type="button"
+            aria-expanded="true"
+        >
+            <span>⚑</span>
+            <b>Dispute &amp; Issue Resolution</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="financial-exceptions-disputes.html">
+                Financial Exceptions &amp; Disputes
+            </a>
+
+            <a href="payment-evidence-documents.html">
+                Payment Evidence &amp; Documents
+            </a>
+        </div>
+    </div>
+
+    <a class="nav-link" href="reports-analytics.html">
+        <span>▥</span>
+        <b>Reports &amp; Analytics</b>
+    </a>
+
+    <a
+        class="nav-link"
+        href="notifications.html"
+    >
+        <span aria-hidden="true">△</span>
+        <b>Notifications</b>
+    </a>
+</nav>            <footer>
+                Version 1.0.0
+                <br />
+                © 2026 Dsphere
+            </footer>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div>
+                    <p>DISPUTES</p>
+                    <h1>Payment Evidence &amp; Documents</h1>
+
+                    <span>
+                        Maintain supporting payment files and verification.
+                    </span>
+                </div>
+            </section>
+
+            <!-- Module Overview -->
+            <section class="module-visual disputes-visual">
+
+                <div>
+                    <h2>Payment Evidence &amp; Documents Overview</h2>
+
+                    <p>
+                        Maintain supporting payment files and verification.
+                    </p>
+                </div>
+
+                <div class="status-road">
+                    <span>Raised</span>
+                    <i></i>
+                    <span>Review</span>
+                    <i></i>
+                    <span>Resolution</span>
+                    <i></i>
+                    <span>Closed</span>
+                </div>
+
+            </section>
+
+            <!-- Filters -->
+            <section class="filter-panel">
+                <div>
+
+                    <label>
+                        Search records
+
+                        <input
+                            id="tableSearch"
+                            type="search"
+                            placeholder="Search by any visible value..."
+                        />
+                    </label>
+
+                    <label>
+                        Status
+
+                        <select id="statusFilter">
+                            <option value="">All statuses</option>
+                            <option>Active</option>
+                            <option>Pending</option>
+                            <option>Completed</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        From date
+
+                        <input type="date" />
+                    </label>
+
+                    <label>
+                        To date
+
+                        <input type="date" />
+                    </label>
+
+                </div>
+            </section>
+
+            <!-- Records Panel -->
+            <section class="records-panel">
+
+                <div class="panel-head">
+
+                    <div>
+                        <h2>Current Records</h2>
+                        <span id="recordCount">5 records</span>
+                    </div>
+
+                    <button
+                        id="exportTop"
+                        class="outline-btn"
+                        type="button"
+                    >
+                        Export CSV
+                    </button>
+
+                </div>
+
+                <!-- Records Table -->
+                <div class="table-wrap">
+
+                    <table id="recordsTable">
+
+                        <thead>
+                            <tr>
+                                <th>Document ID</th>
+                                <th>Distributor Name</th>
+                                <th>Invoice Number</th>
+                                <th>Document Type</th>
+                                <th>Upload Date</th>
+                                <th>Uploaded By</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr data-index="0">
+                                <td>DOC-1101</td>
+                                <td>Apex Distributors</td>
+                                <td>INV-1101</td>
+                                <td>Verified entry</td>
+                                <td>2026-10-10</td>
+                                <td>Verified entry</td>
+                            </tr>
+
+                            <tr data-index="1">
+                                <td>DOC-1102</td>
+                                <td>Metro Wholesale</td>
+                                <td>INV-1102</td>
+                                <td>Monthly record</td>
+                                <td>2026-10-11</td>
+                                <td>Monthly record</td>
+                            </tr>
+
+                            <tr data-index="2">
+                                <td>DOC-1103</td>
+                                <td>Sunrise Traders</td>
+                                <td>INV-1103</td>
+                                <td>Finance review</td>
+                                <td>2026-10-12</td>
+                                <td>Finance review</td>
+                            </tr>
+
+                            <tr data-index="3">
+                                <td>DOC-1104</td>
+                                <td>Coastal Supply</td>
+                                <td>INV-1104</td>
+                                <td>Operational item</td>
+                                <td>2026-10-13</td>
+                                <td>Operational item</td>
+                            </tr>
+
+                            <tr data-index="4">
+                                <td>DOC-1105</td>
+                                <td>Prime Retail</td>
+                                <td>INV-1105</td>
+                                <td>Approved entry</td>
+                                <td>2026-10-14</td>
+                                <td>Approved entry</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button type="button">‹</button>
+                    <button class="current" type="button">1</button>
+                    <button type="button">2</button>
+                    <button type="button">3</button>
+                    <button type="button">›</button>
+                </div>
+
+            </section>
+
+            <!-- Available Actions -->
+            <section class="page-actions">
+
+                <h2>Available Actions</h2>
+
+                <p>
+                    Select a table row before using Edit or Delete.
+                </p>
+
+                <div>
+                    <button
+                        type="button"
+                        data-action="Add Document"
+                    >
+                        Add Document
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Edit Details"
+                    >
+                        Edit Details
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Delete Document"
+                    >
+                        Delete Document
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="Verify Document"
+                    >
+                        Verify Document
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- Add or Edit Record Dialog -->
+            <dialog id="recordDialog">
+
+                <form
+                    id="recordForm"
+                    method="dialog"
+                    novalidate
+                >
+
+                    <div class="dialog-head">
+
+                        <div>
+                            <p>Payment Evidence &amp; Documents</p>
+                            <h2 id="dialogTitle">Add Record</h2>
+                        </div>
+
+                        <button
+                            class="close-dialog"
+                            type="button"
+                            aria-label="Close"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <label>
+                            <span>Document ID</span>
+
+                            <input
+                                id="field-0"
+                                name="Document ID"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Distributor Name</span>
+
+                            <input
+                                id="field-1"
+                                name="Distributor Name"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Invoice Number</span>
+
+                            <input
+                                id="field-2"
+                                name="Invoice Number"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Document Type</span>
+
+                            <select
+                                id="field-3"
+                                name="Document Type"
+                                required
+                            >
+                                <option value="">
+                                    Select Document Type
+                                </option>
+
+                                <option>Payment Receipt</option>
+                                <option>Bank Statement</option>
+                                <option>Invoice Copy</option>
+                                <option>Credit Note</option>
+                                <option>Other</option>
+                            </select>
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Upload Date</span>
+
+                            <input
+                                id="field-4"
+                                name="Upload Date"
+                                type="date"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Uploaded By</span>
+
+                            <input
+                                id="field-5"
+                                name="Uploaded By"
+                                type="text"
+                                required
+                            />
+
+                            <small class="field-error"></small>
+                        </label>
+
+                        <label>
+                            <span>Verification Status</span>
+
+                            <select
+                                id="field-6"
+                                name="Verification Status"
+                                required
+                            >
+                                <option value="">
+                                    Select Verification Status
+                                </option>
+
+                                <option>Active</option>
+                                <option>Pending</option>
+                                <option>Completed</option>
+                            </select>
+
+                            <small class="field-error"></small>
+                        </label>
+
+                    </div>
+
+                    <div class="dialog-actions">
+
+                        <button
+                            class="outline-btn close-dialog"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button type="submit">
+                            Save Record
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+            </dialog>
+
+            <!-- Monthly Comparison Dialog -->
+            <dialog id="compareDialog">
+
+                <div class="dialog-head">
+
+                    <div>
+                        <p>Analysis</p>
+                        <h2>Monthly Comparison</h2>
+                    </div>
+
+                    <button
+                        class="close-compare"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="comparison">
+
+                    <article>
+                        <small>Previous Month</small>
+                        <b>₹2.88M</b>
+                        <em>September 2026</em>
+                    </article>
+
+                    <article>
+                        <small>Current Month</small>
+                        <b>₹3.17M</b>
+                        <em>October 2026</em>
+                    </article>
+
+                    <article>
+                        <small>Change</small>
+                        <b class="positive">+10.1%</b>
+                        <em>Improved position</em>
+                    </article>
+
+                </div>
+
+                <button
+                    class="close-compare"
+                    type="button"
+                >
+                    Close
+                </button>
+
+            </dialog>
+
+        </main>
+
+    </div>
+
+    <!-- Toast Message -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <!-- Page Configuration -->
+    <script>
+        window.PAGE_CONFIG = {
+            page: "Payment Evidence & Documents",
+
+            fields: [
+                "Document ID",
+                "Distributor Name",
+                "Invoice Number",
+                "Document Type",
+                "Upload Date",
+                "Uploaded By",
+                "Verification Status"
+            ],
+
+            actions: [
+                "Add Document",
+                "Edit Details",
+                "Delete Document",
+                "Verify Document"
+            ],
+
+            storageKey: "dsphere_payment-evidence-documents"
+        };
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="app.js"></script>
+
+    <!-- Notification Panel -->
+    <section
+        id="notificationPanel"
+        class="notification-panel"
+        aria-hidden="true"
+    >
+
+        <div class="notification-head">
+
+            <div>
+                <small>Finance Manager</small>
+                <h2>Notifications</h2>
+            </div>
+
+            <button
+                id="closeNotifications"
+                type="button"
+                aria-label="Close notifications"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="notification-list">
+
+            <article>
+
+                <span class="notice-icon urgent">!</span>
+
+                <div>
+                    <b>5 invoices awaiting approval</b>
+
+                    <p>
+                        Review pending invoices in Invoices &amp;
+                        Outstanding Amounts.
+                    </p>
+
+                    <small>Today, 10:15 AM</small>
+                </div>
+
+            </article>
+
+            <article>
+
+                <span class="notice-icon warning">₹</span>
+
+                <div>
+                    <b>3 overdue payment follow-ups</b>
+
+                    <p>
+                        Collection reminders are due for distributor accounts.
+                    </p>
+
+                    <small>Today, 9:30 AM</small>
+                </div>
+
+            </article>
+
+            <article>
+
+                <span class="notice-icon risk">◇</span>
+
+                <div>
+                    <b>Credit-risk review due</b>
+
+                    <p>
+                        Two high-risk distributor assessments require review.
+                    </p>
+
+                    <small>Yesterday</small>
+                </div>
+
+            </article>
+
+            <article>
+
+                <span class="notice-icon success">✓</span>
+
+                <div>
+                    <b>Monthly report generated</b>
+
+                    <p>
+                        The October finance report is available for export.
+                    </p>
+
+                    <small>18 Oct 2026</small>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="notification-foot">
+
+            <button
+                id="markAllRead"
+                type="button"
+            >
+                Mark all as read
+            </button>
+
+        </div>
+
+    </section>
+<script src="notification-bell.js"></script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="description"
+        content="Dsphere Finance Manager - Dashboard Overview"
+    >
+
+    <title>Dashboard Overview | Dsphere</title>
+
+    <link
+        href="style.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body data-section="dashboard">
+
+    <!-- =====================================================
+         TOPBAR
+         ===================================================== -->
+    <header class="topbar">
+
+        <!-- Brand -->
+        <a
+            class="brand"
+            href="dashboard.html"
+            aria-label="Go to Finance Manager dashboard"
+        >
+            <img
+                src="logo.png"
+                alt="Dsphere logo"
+            >
+
+            <span>
+                <strong>Dsphere</strong>
+
+                <small>
+                    Distributor Operations Management Platform
+                </small>
+            </span>
+        </a>
+
+        <!-- Global Search -->
+        <label class="global-search">
+
+            <span aria-hidden="true">
+                ⌕
+            </span>
+
+            <input
+                id="globalSearch"
+                type="search"
+                placeholder="Search current page..."
+                aria-label="Search current page"
+                autocomplete="off"
+            >
+
+        </label>
+
+        <!-- Profile -->
+        <div class="profile">
+
+           <span
+    class="bell"
+    role="button"
+    tabindex="0"
+    aria-label="Open notifications"
+>
+    🔔
+</span>
+
+            <!-- Avatar -->
+            <span class="avatar">
+                FM
+            </span>
+
+            <!-- User Information -->
+            <span>
+                <b>Finance Manager</b>
+                <small>Finance Operations</small>
+            </span>
+
+            <!-- Logout -->
+            <button
+                class="logout-btn"
+                id="logoutButton"
+                type="button"
+                title="Logout"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         APPLICATION LAYOUT
+         ===================================================== -->
+    <div class="app">
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+        <aside class="sidebar">
+
+            <nav>
+    <a class="nav-link" href="dashboard.html">
+        <span>⌂</span>
+        <b>Dashboard Overview</b>
+    </a>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>▣</span>
+            <b>Receivables Management</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="payment-performance.html">
+                Payment Performance
+            </a>
+
+            <a href="invoices-outstanding.html">
+                Invoices &amp; Outstanding Amounts
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>◇</span>
+            <b>Credit Risk Analysis</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="distributor-credit-risk.html">
+                Distributor Credit Risk
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>▤</span>
+            <b>Inventory Financials</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="inventory-holding-cost.html">
+                Inventory Holding Cost
+            </a>
+
+            <a href="inventory-turnover.html">
+                Inventory Turnover
+            </a>
+
+            <a href="inventory-loss-management.html">
+                Inventory Loss Management
+            </a>
+        </div>
+    </div>
+
+    <a class="nav-link" href="working-capital-analysis.html">
+        <span>◫</span>
+        <b>Working Capital Analysis</b>
+    </a>
+
+    <div class="nav-group">
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+        >
+            <span>⚑</span>
+            <b>Dispute &amp; Issue Resolution</b>
+            <i>⌄</i>
+        </button>
+
+        <div class="sub-nav">
+            <a href="financial-exceptions-disputes.html">
+                Financial Exceptions &amp; Disputes
+            </a>
+
+            <a href="payment-evidence-documents.html">
+                Payment Evidence &amp; Documents
+            </a>
+
+           
+        </div>
+    </div>
+
+    <a class="nav-link" href="reports-analytics.html">
+        <span>▥</span>
+        <b>Reports &amp; Analytics</b>
+    </a>
+
+    <a
+        class="nav-link"
+        href="notifications.html"
+    >
+        <span aria-hidden="true">△</span>
+        <b>Notifications</b>
+    </a>
+</nav>
+
+            <!-- Sidebar Footer -->
+            <footer>
+                Version 1.0.0
+                <br>
+                © 2026 Dsphere
+            </footer>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+        <main>
+
+            <!-- Dashboard Hero -->
+            <section class="hero dashboard-hero">
+
+                <div>
+                    <p>
+                        DASHBOARD OVERVIEW
+                    </p>
+
+                    <span>
+                        Monitor receivables, risk, inventory financials,
+                        working capital and disputes.
+                    </span>
+                </div>
+
+                <a
+                    class="primary-link"
+                    href="payment-performance.html"
+                >
+                    Open Receivables
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATISTICS
+                 ================================================= -->
+            <div class="stats">
+
+                <article>
+                    <i aria-hidden="true">
+                        ₹
+                    </i>
+
+                    <div>
+                        <small>
+                            Total Receivables
+                        </small>
+
+                        <strong>
+                            ₹2.45M
+                        </strong>
+
+                        <em>
+                            ▲ 8.2%
+                        </em>
+                    </div>
+                </article>
+
+
+                <article>
+                    <i aria-hidden="true">
+                        ▣
+                    </i>
+
+                    <div>
+                        <small>
+                            Outstanding Invoices
+                        </small>
+
+                        <strong>
+                            ₹8.70L
+                        </strong>
+
+                        <em>
+                            42 records
+                        </em>
+                    </div>
+                </article>
+
+
+                <article>
+                    <i aria-hidden="true">
+                        ◇
+                    </i>
+
+                    <div>
+                        <small>
+                            High-Risk Distributors
+                        </small>
+
+                        <strong>
+                            12
+                        </strong>
+
+                        <em class="alert">
+                            Needs review
+                        </em>
+                    </div>
+                </article>
+
+
+                <article>
+                    <i aria-hidden="true">
+                        ◫
+                    </i>
+
+                    <div>
+                        <small>
+                            Working Capital
+                        </small>
+
+                        <strong>
+                            ₹3.17M
+                        </strong>
+
+                        <em>
+                            ▲ 5.4%
+                        </em>
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- =================================================
+                 DASHBOARD GRAPHS
+                 ================================================= -->
+            <div class="dashboard-grid">
+
+                <!-- Payment Collection Trend -->
+                <section class="panel">
+
+                    <div class="panel-head">
+                        <h2>
+                            Payment Collection Trend
+                        </h2>
+
+                        <span>
+                            Apr–Oct 2026
+                        </span>
+                    </div>
+
+                    <div
+                        class="bar-chart"
+                        aria-label="Payment collection trend chart"
+                    >
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <div class="axis">
+                        <span>Apr</span>
+                        <span>May</span>
+                        <span>Jun</span>
+                        <span>Jul</span>
+                        <span>Aug</span>
+                        <span>Sep</span>
+                        <span>Oct</span>
+                    </div>
+
+                </section>
+
+
+                <!-- Working Capital Mix -->
+                <section class="panel">
+
+                    <div class="panel-head">
+                        <h2>
+                            Working Capital Mix
+                        </h2>
+
+                        <span>
+                            Current month
+                        </span>
+                    </div>
+
+                    <div class="donut-wrap">
+
+                        <div class="donut">
+                            <b>
+                                ₹3.17M
+                            </b>
+
+                            <small>
+                                Net capital
+                            </small>
+                        </div>
+
+                        <ul>
+                            <li>
+                                Receivables
+                                <b>35%</b>
+                            </li>
+
+                            <li>
+                                Inventory
+                                <b>28%</b>
+                            </li>
+
+                            <li>
+                                Cash
+                                <b>20%</b>
+                            </li>
+
+                            <li>
+                                Payables
+                                <b>17%</b>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 DASHBOARD ACTIONS
+                 ================================================= -->
+            <section class="dashboard-actions">
+
+                <a href="overdue-payment-monitoring.html">
+                    <b>18</b>
+                    <span>Overdue follow-ups</span>
+                </a>
+
+                <a href="distributor-credit-risk.html">
+                    <b>12</b>
+                    <span>Risk reviews due</span>
+                </a>
+
+                <a href="financial-exceptions-disputes.html">
+                    <b>9</b>
+                    <span>Open disputes</span>
+                </a>
+
+                <a href="ticket-resolution-tracking.html">
+                    <b>14</b>
+                    <span>Active tickets</span>
+                </a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST MESSAGE
+         ===================================================== -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =====================================================
+         PAGE CONFIGURATION
+         ===================================================== -->
+    <script>
+        window.PAGE_CONFIG = {
+            page: "Dashboard Overview",
+            fields: [],
+            actions: [],
+            storageKey: "dsphere_dashboard"
+        };
+    </script>
+
+
+    <!-- Main Application JavaScript -->
+    <script src="app.js"></script>
+
+
+    <!-- =====================================================
+         NOTIFICATION PANEL
+         ===================================================== -->
+    <section
+        class="notification-panel"
+        id="notificationPanel"
+        aria-hidden="true"
+        aria-label="Finance Manager notifications"
+    >
+
+        <div class="notification-head">
+
+            <div>
+                <small>
+                    Finance Manager
+                </small>
+
+                <h2>
+                    Notifications
+                </h2>
+            </div>
+
+            <button
+                id="closeNotifications"
+                type="button"
+                aria-label="Close notifications"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="notification-list">
+
+            <article>
+                <span class="notice-icon urgent">
+                    !
+                </span>
+
+                <div>
+                    <b>
+                        5 invoices awaiting approval
+                    </b>
+
+                    <p>
+                        Review pending invoices in
+                        Invoices &amp; Outstanding Amounts.
+                    </p>
+
+                    <small>
+                        Today, 10:15 AM
+                    </small>
+                </div>
+            </article>
+
+
+            <article>
+                <span class="notice-icon warning">
+                    ₹
+                </span>
+
+                <div>
+                    <b>
+                        3 overdue payment follow-ups
+                    </b>
+
+                    <p>
+                        Collection reminders are due for
+                        distributor accounts.
+                    </p>
+
+                    <small>
+                        Today, 9:30 AM
+                    </small>
+                </div>
+            </article>
+
+
+            <article>
+                <span class="notice-icon risk">
+                    ◇
+                </span>
+
+                <div>
+                    <b>
+                        Credit-risk review due
+                    </b>
+
+                    <p>
+                        Two high-risk distributor assessments
+                        require review.
+                    </p>
+
+                    <small>
+                        Yesterday
+                    </small>
+                </div>
+            </article>
+
+
+            <article>
+                <span class="notice-icon success">
+                    ✓
+                </span>
+
+                <div>
+                    <b>
+                        Monthly report generated
+                    </b>
+
+                    <p>
+                        The October finance report is available
+                        for export.
+                    </p>
+
+                    <small>
+                        18 Oct 2026
+                    </small>
+                </div>
+            </article>
+
+        </div>
+
+
+        <div class="notification-foot">
+            <button
+                id="markAllRead"
+                type="button"
+            >
+                Mark all as read
+            </button>
+        </div>
+
+    </section>
+<script src="notification-bell.js"></script>
+</body>
+
+</html>
