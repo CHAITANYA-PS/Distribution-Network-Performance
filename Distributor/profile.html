@@ -1,0 +1,311 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Profile | Dsphere</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="auth-check.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/dsphere-logo.png" alt="Dsphere logo">
+      <div><strong>Dsphere</strong><span>Distributor Operations Platform</span></div>
+    </a>
+    <label class="search"><span>⌕</span><input placeholder="Search your workspace..."></label>
+    <div class="top-actions">
+      <button class="bell">🔔</button>
+      <div class="avatar" data-avatar>D</div>
+      <div class="user"><strong data-user-name>Distributor</strong><span data-user-role><b> Operations</b></span></div>
+       <a
+        class="logout-button"
+        href="../index.html"
+        title="Logout from Dsphere"
+        </span>
+
+        <span class="logout-text">
+          Logout
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <nav>
+      <a class="nav-link" href="index.html"><span class="nav-icon">⌂</span><span>Dashboard Overview</span></a>
+      <a class="nav-link" href="performance.html"><span class="nav-icon">◉</span><span>Performance Hub</span></a>
+      <a class="nav-link" href="inventory.html"><span class="nav-icon">▥</span><span>Inventory Management</span></a>
+      <a class="nav-link" href="logistics.html"><span class="nav-icon">⇄</span><span>Logistics</span></a>
+      <a class="nav-link" href="sustainability.html"><span class="nav-icon">◇</span><span>Sustainability</span></a>
+      <a class="nav-link" href="recovery.html"><span class="nav-icon">↻</span><span>Recovery &amp; Resolution</span></a>
+      
+      <a class="nav-link" href="reports.html"><span class="nav-icon">▤</span><span>Reports &amp; History</span></a>
+      <a class="nav-link active" href="profile.html"><span class="nav-icon">○</span><span>My Profile</span></a>
+      <a class="nav-link" href="evidence-upload.html"><span class="nav-icon">⇧</span><span>Evidence Upload</span></a>
+<a class="nav-link" href="notifications.html"><span class="nav-icon">△</span><span>Notifications</span></a>
+    </nav>
+    <div class="sidebar-foot">Version 1.0.0<br>© 2026 Dsphere</div>
+  </aside>
+
+  <main>
+    <div class="page-head">
+      <div>
+        <p class="eyebrow">ACCOUNT &amp; BUSINESS PROFILE</p>
+        <h1>My Profile</h1>
+        <p class="subtitle">Manage distributor information, operating locations and manufacturer stock orders.</p>
+      </div>
+      <div class="filters">
+        <button class="secondary" id="editProfileButton" type="button">Edit Profile</button>
+      </div>
+    </div>
+
+    <section class="panel profile-banner">
+      <div class="profile-large-avatar">D</div>
+      <div class="profile-summary">
+        <h2>Coastal Trade Distributors</h2>
+        <p>Distributor ID: DST-10428 &nbsp;•&nbsp; Active partner since 2021</p>
+        <span class="pill good">Verified Account</span>
+      </div>
+      <div class="profile-health account-status-control">
+        <label for="accountStatus">Account Status</label>
+        <select id="accountStatus" aria-label="Distributor account status">
+          <option value="active" selected>Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="discontinue">Discontinuation Requested</option>
+        </select>
+        <button class="secondary" id="updateAccountStatus" type="button">Update Status</button>
+        <span class="account-status-message" id="accountStatusMessage" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <div class="panel-head"><h2>Business Information</h2></div>
+        <div class="form-grid profile-form">
+          <label>Legal Business Name<input value="Coastal Trade Distributors" readonly></label>
+          <label>GSTIN<input value="33ABCDE1234F1Z5" readonly></label>
+          <label>Primary Region<input value="Tamil Nadu - Coastal" readonly></label>
+          <label>Distribution Category<input value="General Trade" readonly></label>
+          <label class="wide">Registered Address<textarea readonly>14 Market Road, Cuddalore, Tamil Nadu 607001</textarea></label>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>Contact &amp; Access</h2></div>
+        <div class="form-grid profile-form">
+          <label>Primary Contact<input value="Distributor Manager" readonly></label>
+          <label>Business Email<input value="manager@coastaltrade.example" readonly></label>
+          <label>Phone<input value="+91 90000 00000" readonly></label>
+          <label>Preferred Language<input value="English" readonly></label>
+          <label class="wide">Notification Channel<input value="Email and in-app" readonly></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="section-title"><h2>Operating Locations</h2><button class="primary" type="button">+ Add Location</button></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Location</th><th>Type</th><th>Manager</th><th>Coverage</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Cuddalore Main Warehouse</td><td>Warehouse</td><td>Operations Manager</td><td>Cuddalore &amp; Villupuram</td><td><span class="pill good">Active</span></td></tr>
+            <tr><td>Pondicherry Depot</td><td>Transit Depot</td><td>Depot Manager</td><td>Pondicherry</td><td><span class="pill good">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Manufacturer stock ordering is included inside My Profile as requested. -->
+    <section class="panel profile-orders" id="manufacturerStockOrders">
+      <div class="profile-order-heading">
+        <div>
+          <p class="eyebrow">STOCK PROCUREMENT</p>
+          <h2>Manufacturer Stock Orders</h2>
+          <p>Place stock orders with the manufacturer and track approval, processing and delivery.</p>
+        </div>
+        <button class="primary" id="showProfileOrderForm" type="button">+ Place New Order</button>
+      </div>
+
+      <div class="profile-order-summary">
+        <article><span>Total Orders</span><strong id="profileTotalOrders">24</strong></article>
+        <article><span>Awaiting Approval</span><strong id="profilePendingOrders">3</strong></article>
+        <article><span>Processing</span><strong>4</strong></article>
+        <article><span>In Transit</span><strong>2</strong></article>
+      </div>
+
+      <form class="profile-order-form" id="profileManufacturerOrderForm" hidden>
+        <div class="profile-order-form-head">
+          <div><h3>New Manufacturer Order</h3><p>Enter the stock and delivery requirements for manufacturer approval.</p></div>
+          <button class="profile-close" id="hideProfileOrderForm" type="button" aria-label="Close order form">×</button>
+        </div>
+
+        <div class="profile-order-grid">
+          <label>Product Name<input id="profileOrderProduct" type="text" placeholder="Example: FreshCare 500ml" required></label>
+          <label>Product SKU<input id="profileOrderSku" type="text" placeholder="Example: FC-500-01" required></label>
+          <label>Current Stock<input id="profileOrderStock" type="number" min="0" placeholder="80" required></label>
+          <label>Order Quantity<input id="profileOrderQuantity" type="number" min="1" placeholder="1000" required></label>
+          <label>Unit of Measure<select id="profileOrderUnit" required><option value="">Select unit</option><option>Units</option><option>Cases</option><option>Cartons</option><option>Pallets</option></select></label>
+          <label>Required Delivery Date<input id="profileOrderDate" type="date" required></label>
+          <label>Delivery Location<select id="profileOrderLocation" required><option value="">Select location</option><option>Cuddalore Main Warehouse</option><option>Pondicherry Depot</option></select></label>
+          <label>Priority<select id="profileOrderPriority" required><option value="">Select priority</option><option>Normal</option><option>High</option><option>Urgent</option></select></label>
+          <label>Order Reason<select id="profileOrderReason" required><option value="">Select reason</option><option>Regular replenishment</option><option>Low stock</option><option>Seasonal demand</option><option>Promotion requirement</option><option>Confirmed retailer orders</option><option>Emergency requirement</option></select></label>
+          <label>Preferred Delivery Mode<select id="profileDeliveryMode" required><option value="">Select mode</option><option>Standard Delivery</option><option>Express Delivery</option><option>Manufacturer Scheduled Delivery</option></select></label>
+          <label class="wide">Additional Notes<textarea id="profileOrderNotes" placeholder="Add packing, batch, delivery or other instructions."></textarea></label>
+        </div>
+
+        <div class="profile-manufacturer-notice"><b>Order Recipient</b><span>Manufacturer Order Management Team</span></div>
+        <div class="profile-order-actions"><button class="secondary" type="reset">Clear</button><button class="primary" type="submit">Submit Order</button></div>
+        <p class="profile-order-message" id="profileOrderMessage" aria-live="polite"></p>
+      </form>
+
+      <div class="profile-order-list-head">
+        <h3>My Manufacturer Orders</h3>
+        <select id="profileOrderFilter"><option>All Statuses</option><option>Awaiting Approval</option><option>Approved</option><option>Processing</option><option>Shipped</option><option>Delivered</option><option>Rejected</option></select>
+      </div>
+
+      <div class="table-wrap">
+        <table id="profileOrdersTable">
+          <thead><tr><th>Order ID</th><th>Product</th><th>Quantity</th><th>Required Date</th><th>Order Value</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>MO-2058</td><td>FreshCare 500ml</td><td>1,000 Units</td><td>28 Oct 2026</td><td>₹248,000</td><td><span class="profile-order-status profile-order-shipped">Shipped</span></td><td><button class="profile-view-order" type="button">View Status</button></td></tr>
+            <tr><td>MO-2054</td><td>NutriBar Pack</td><td>500 Cases</td><td>30 Oct 2026</td><td>₹186,500</td><td><span class="profile-order-status profile-order-processing">Processing</span></td><td><button class="profile-view-order" type="button">View Status</button></td></tr>
+            <tr><td>MO-2051</td><td>HomeClean 1L</td><td>700 Units</td><td>02 Nov 2026</td><td>₹154,000</td><td><span class="profile-order-status profile-order-approved">Approved</span></td><td><button class="profile-view-order" type="button">View Status</button></td></tr>
+            <tr><td>MO-2048</td><td>CarePlus Soap</td><td>300 Cartons</td><td>05 Nov 2026</td><td>₹92,400</td><td><span class="profile-order-status profile-order-pending">Awaiting Approval</span></td><td><button class="profile-view-order" type="button">View Status</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="profile-order-tracking" id="profileOrderTracking" hidden>
+        <div class="profile-order-track-head">
+          <div><h3 id="profileOrderTrackingTitle">Order Status</h3><p>Manufacturer order progress from submission to delivery.</p></div>
+          <button class="profile-close" id="hideProfileTracking" type="button" aria-label="Close order tracking">×</button>
+        </div>
+        <ol class="profile-order-progress">
+          <li class="done"><b>Order Submitted</b><span>The stock order was sent to the manufacturer.</span></li>
+          <li class="done"><b>Manufacturer Approval</b><span>Product availability, quantity and order details were reviewed.</span></li>
+          <li class="current"><b>Order Processing</b><span>The manufacturer is preparing stock and scheduling dispatch.</span></li>
+          <li><b>Shipped / In Transit</b><span>The order is dispatched to the distributor location.</span></li>
+          <li><b>Delivered</b><span>The distributor receives and verifies the ordered stock.</span></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="validation.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const editButton = document.getElementById('editProfileButton');
+    const profileFields = document.querySelectorAll('.profile-form input, .profile-form textarea');
+    let editingProfile = false;
+
+    editButton.addEventListener('click', function () {
+      editingProfile = !editingProfile;
+      profileFields.forEach(function (field) { field.readOnly = !editingProfile; });
+      editButton.textContent = editingProfile ? 'Save Profile' : 'Edit Profile';
+    });
+
+    const accountStatus = document.getElementById('accountStatus');
+    const accountStatusMessage = document.getElementById('accountStatusMessage');
+    const verifiedBadge = document.querySelector('.profile-summary .pill');
+
+    document.getElementById('updateAccountStatus').addEventListener('click', function () {
+      const selectedStatus = accountStatus.value;
+
+      if (selectedStatus === 'active') {
+        verifiedBadge.textContent = 'Verified Account';
+        verifiedBadge.className = 'pill good';
+        accountStatusMessage.className = 'account-status-message success';
+        accountStatusMessage.textContent = 'Account status updated to Active.';
+      } else if (selectedStatus === 'inactive') {
+        verifiedBadge.textContent = 'Inactive Account';
+        verifiedBadge.className = 'pill bad';
+        accountStatusMessage.className = 'account-status-message warning';
+        accountStatusMessage.textContent = 'Account is now inactive. Operational access may be restricted.';
+      } else {
+        verifiedBadge.textContent = 'Discontinuation Pending';
+        verifiedBadge.className = 'pill bad';
+        accountStatusMessage.className = 'account-status-message warning';
+        accountStatusMessage.textContent = 'Discontinuation request submitted for manufacturer or administrator review.';
+      }
+    });
+
+    const orderForm = document.getElementById('profileManufacturerOrderForm');
+    const orderTableBody = document.querySelector('#profileOrdersTable tbody');
+    const orderMessage = document.getElementById('profileOrderMessage');
+    const tracking = document.getElementById('profileOrderTracking');
+
+    document.getElementById('showProfileOrderForm').addEventListener('click', function () {
+      orderForm.hidden = false;
+      orderForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('hideProfileOrderForm').addEventListener('click', function () {
+      orderForm.hidden = true;
+    });
+
+    orderForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const product = document.getElementById('profileOrderProduct').value.trim();
+      const sku = document.getElementById('profileOrderSku').value.trim();
+      const stock = Number(document.getElementById('profileOrderStock').value);
+      const quantity = Number(document.getElementById('profileOrderQuantity').value);
+      const unit = document.getElementById('profileOrderUnit').value;
+      const date = document.getElementById('profileOrderDate').value;
+
+      if (!product || !sku || stock < 0 || quantity < 1 || !unit || !date) {
+        orderMessage.className = 'profile-order-message error';
+        orderMessage.textContent = 'Please enter valid product, stock, quantity, unit and required-date details.';
+        return;
+      }
+
+      const orderId = 'MO-' + (2060 + orderTableBody.rows.length);
+      const safeProduct = document.createElement('div');
+      safeProduct.textContent = product;
+      const displayDate = new Date(date + 'T00:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      const row = document.createElement('tr');
+
+      row.innerHTML = '<td>' + orderId + '</td>' +
+        '<td>' + safeProduct.innerHTML + '</td>' +
+        '<td>' + quantity + ' ' + unit + '</td>' +
+        '<td>' + displayDate + '</td>' +
+        '<td>Pending Quote</td>' +
+        '<td><span class="profile-order-status profile-order-pending">Awaiting Approval</span></td>' +
+        '<td><button class="profile-view-order" type="button">View Status</button></td>';
+
+      orderTableBody.prepend(row);
+      document.getElementById('profileTotalOrders').textContent = Number(document.getElementById('profileTotalOrders').textContent) + 1;
+      document.getElementById('profilePendingOrders').textContent = Number(document.getElementById('profilePendingOrders').textContent) + 1;
+      orderForm.reset();
+      orderMessage.className = 'profile-order-message success';
+      orderMessage.textContent = orderId + ' submitted successfully. The manufacturer will review and approve the stock order.';
+    });
+
+    document.getElementById('profileOrderFilter').addEventListener('change', function (event) {
+      const status = event.target.value;
+      Array.from(orderTableBody.rows).forEach(function (row) {
+        row.hidden = status !== 'All Statuses' && !row.textContent.includes(status);
+      });
+    });
+
+    document.getElementById('profileOrdersTable').addEventListener('click', function (event) {
+      const button = event.target.closest('.profile-view-order');
+      if (!button) return;
+      const row = button.closest('tr');
+      document.getElementById('profileOrderTrackingTitle').textContent = row.cells[0].textContent + ' - ' + row.cells[1].textContent;
+      tracking.hidden = false;
+      tracking.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('hideProfileTracking').addEventListener('click', function () {
+      tracking.hidden = true;
+    });
+  });
+</script>
+</body>
+</html>

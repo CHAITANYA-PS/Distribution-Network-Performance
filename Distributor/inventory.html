@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Inventory Management | Dsphere</title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="auth-check.js"></script>
+
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+<a class="brand" href="index.html">
+<img alt="Dsphere logo" src="assets/dsphere-logo.png"/>
+<div><strong>Dsphere</strong><span>Distributor Operations Platform</span></div>
+</a>
+<label class="search"><span>⌕</span><input placeholder="Search your workspace..."/></label>
+<div class="top-actions">
+<button class="bell">🔔</button>
+<div class="avatar" data-avatar="">D</div>
+<div class="user"><strong data-user-name="">Distributor</strong><span data-user-role=""><b> Operations</b></span></div>
+ <a
+        class="logout-button"
+        href="../index.html"
+        title="Logout from Dsphere"
+        </span>
+
+        <span class="logout-text">
+          Logout
+        </span>
+      </a>
+
+</div>
+</header>
+<aside class="sidebar">
+<nav>
+<a class="nav-link" href="index.html"><span class="nav-icon">⌂</span><span>Dashboard Overview</span></a>
+<a class="nav-link" href="performance.html"><span class="nav-icon">◉</span><span>Performance Hub</span></a>
+<a class="nav-link active" href="inventory.html"><span class="nav-icon">▥</span><span>Inventory Management</span></a>
+<a class="nav-link" href="logistics.html"><span class="nav-icon">⇄</span><span>Logistics</span></a>
+<a class="nav-link" href="sustainability.html"><span class="nav-icon">◇</span><span>Sustainability</span></a>
+<a class="nav-link" href="recovery.html"><span class="nav-icon">↻</span><span>Recovery &amp; Resolution</span></a>
+<a class="nav-link" href="reports.html"><span class="nav-icon">▤</span><span>Reports &amp; History</span></a>
+<a class="nav-link" href="profile.html"><span class="nav-icon">○</span><span>My Profile</span></a>
+<a class="nav-link" href="evidence-upload.html"><span class="nav-icon">⇧</span><span>Evidence Upload</span></a>
+<a class="nav-link" href="notifications.html"><span class="nav-icon">△</span><span>Notifications</span></a>
+
+</nav>
+<div class="sidebar-foot">Version 1.0.0<br/>© 2026 Dsphere</div>
+</aside>
+<main>
+<div class="page-head">
+<div><p class="eyebrow">INVENTORY CONTROL</p><h1>Inventory Management</h1><p class="subtitle">Monitor stock, shelf life and inventory exchange opportunities.</p></div>
+<div class="filters">
+<select><option>Jan 2026 - Dec 2026</option><option>Last 90 days</option><option>This month</option></select>
+<button class="secondary" data-action="export">Export</button>
+</div>
+</div>
+<section class="kpi-grid">
+<article class="kpi"><div class="kpi-icon">▥</div><div><p>Total Stock Value</p><h3>₹3.18M</h3><span class="up">↑ 5.2%</span></div></article>
+<article class="kpi"><div class="kpi-icon">□</div><div><p>Available SKUs</p><h3>284</h3><span class="up">16 low stock</span></div></article>
+<article class="kpi"><div class="kpi-icon">◷</div><div><p>Near Expiry Batches</p><h3>14</h3><span class="warn">Within 45 days</span></div></article>
+<article class="kpi"><div class="kpi-icon">⇄</div><div><p>Exchange Requests</p><h3 id="exchangeRequestCount">5</h3><span class="up">2 received</span></div></article>
+</section>
+<section class="grid two">
+<article class="panel">
+<h2>Stock by Category</h2>
+<div class="bar-chart">
+<div class="bar-col"><div class="bar" style="height:86%"></div><small>Food</small></div>
+<div class="bar-col"><div class="bar" style="height:68%"></div><small>Beverage</small></div>
+<div class="bar-col"><div class="bar" style="height:74%"></div><small>Personal</small></div>
+<div class="bar-col"><div class="bar" style="height:53%"></div><small>Home</small></div>
+<div class="bar-col"><div class="bar" style="height:61%"></div><small>Health</small></div>
+</div>
+</article>
+<article class="panel">
+<h2>Inventory Health</h2>
+<div class="metric-list">
+<div><span>Optimal</span><b>83%</b><progress max="100" value="83"></progress></div>
+<div><span>Low Stock</span><b>16</b></div>
+<div><span>Overstock</span><b>9</b></div>
+</div>
+</article>
+</section>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Batch</th><th>Product</th><th>Qty</th><th>Expiry</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>BT-4012</td><td>FreshCare 500ml</td><td>120</td><td>19 Oct 2026</td><td>Prioritize Sale</td></tr>
+<tr><td>BT-3988</td><td>NutriBar Pack</td><td>84</td><td>02 Nov 2026</td><td>Exchange</td></tr>
+<tr><td>BT-4055</td><td>HomeClean 1L</td><td>66</td><td>20 Nov 2026</td><td>Discount</td></tr>
+</tbody>
+</table>
+</div>
+<!-- Added inside Inventory Management, not as a separate module. -->
+<section class="panel exchange-section" id="inventoryExchange">
+<div class="exchange-heading">
+<div><h2>Inventory Exchange</h2><p>Request supplies during a shortage and track manufacturer approval.</p></div>
+<button class="primary" id="showRequestForm" type="button">+ Request Supplies</button>
+</div>
+<div class="exchange-summary">
+<article><span>Open Requests</span><strong id="openRequestCount">3</strong></article>
+<article><span>Awaiting Approval</span><strong id="awaitingApprovalCount">1</strong></article>
+<article><span>Supplier Assigned</span><strong>1</strong></article>
+<article><span>In Transit</span><strong>1</strong></article>
+</div>
+<form class="request-form" hidden="" id="supplyRequestForm">
+<div class="request-header">
+<div><h3>New Supply Request</h3><p>Enter the shortage details. The manufacturer will approve the request and assign an available distributor.</p></div>
+<button aria-label="Close request form" class="close-button" id="hideRequestForm" type="button">×</button>
+</div>
+<div class="request-grid">
+<label>Product Name<input id="requestProduct" placeholder="Example: FreshCare 500ml" required="" type="text"/></label>
+<label>Product SKU<input id="requestSku" placeholder="Example: FC-500-01" required="" type="text"/></label>
+<label>Current Stock<input id="requestCurrentStock" min="0" placeholder="80" required="" type="number"/></label>
+<label>Required Quantity<input id="requestQuantity" min="1" placeholder="500" required="" type="number"/></label>
+<label>Required By<input id="requestDate" required="" type="date"/></label>
+<label>Priority<select id="requestPriority" required=""><option value="">Select priority</option><option>Normal</option><option>High</option><option>Urgent</option></select></label>
+<label>Delivery Location<input id="requestLocation" placeholder="Cuddalore Main Warehouse" required="" type="text"/></label>
+<label>Shortage Reason<select id="requestReason" required=""><option value="">Select reason</option><option>Unexpected demand</option><option>Delayed manufacturer shipment</option><option>Seasonal demand</option><option>Stock damaged</option><option>Inventory mismatch</option><option>Urgent retailer requirement</option><option>Other</option></select></label>
+<label class="wide">Additional Notes<textarea id="requestNotes" placeholder="Add any information for the manufacturer."></textarea></label>
+</div>
+<div class="supplier-notice"><b>Supplier Distributor</b><span>To be assigned by Manufacturer</span></div>
+<div class="request-actions"><button class="secondary" type="reset">Clear</button><button class="primary" type="submit">Submit Request</button></div>
+<p aria-live="polite" class="request-message" id="requestMessage"></p>
+</form>
+<div class="request-list-head">
+<h3>My Exchange Requests</h3>
+<select id="exchangeStatusFilter"><option>All Statuses</option><option>Under Manufacturer Review</option><option>Supplier Assigned</option><option>In Transit</option><option>Completed</option><option>Rejected</option></select>
+</div>
+<div class="table-wrap">
+<table id="exchangeRequestTable">
+<thead><tr><th>Request ID</th><th>Product</th><th>Requested Qty</th><th>Required By</th><th>Supplier</th><th>Status</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>EX-1048</td><td>FreshCare 500ml</td><td>500</td><td>25 Oct 2026</td><td>Manufacturer Approved Partner</td><td><span class="status-badge status-transit">In Transit</span></td><td><button class="view-status" type="button">View Status</button></td></tr>
+<tr><td>EX-1045</td><td>NutriBar Pack</td><td>300</td><td>27 Oct 2026</td><td>Manufacturer Approved Partner</td><td><span class="status-badge status-assigned">Supplier Assigned</span></td><td><button class="view-status" type="button">View Status</button></td></tr>
+<tr><td>EX-1041</td><td>HomeClean 1L</td><td>150</td><td>29 Oct 2026</td><td>Not Assigned</td><td><span class="status-badge status-review">Under Manufacturer Review</span></td><td><button class="view-status" type="button">View Status</button></td></tr>
+<tr><td>EX-1036</td><td>CarePlus Soap</td><td>200</td><td>12 Oct 2026</td><td>Manufacturer Approved Partner</td><td><span class="status-badge status-completed">Completed</span></td><td><button class="view-status" type="button">View Status</button></td></tr>
+</tbody>
+</table>
+</div>
+<div class="tracking-box" hidden="" id="requestTracking">
+<div class="tracking-header">
+<div><h3 id="trackingTitle">Request Status</h3><p>Manufacturer-controlled inventory exchange progress.</p></div>
+<button aria-label="Close request status" class="close-button" id="hideTracking" type="button">×</button>
+</div>
+<ol class="tracking-steps">
+<li class="done"><b>Request Submitted</b><span>The shortage request was sent to the manufacturer.</span></li>
+<li class="done"><b>Manufacturer Review</b><span>The requested product, quantity and shortage reason are being checked.</span></li>
+<li class="current"><b>Supplier Assignment / Transit</b><span>An approved distributor is assigned and the stock movement is tracked.</span></li>
+<li><b>Receipt Verification</b><span>The requesting distributor confirms the received quantity and condition.</span></li>
+<li><b>Completed</b><span>The inventory exchange request is closed.</span></li>
+</ol>
+</div>
+</section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="validation.js"></script>
+<script>
+  // Page-specific Inventory Exchange interaction.
+  document.addEventListener('DOMContentLoaded', function () {
+    const requestForm = document.getElementById('supplyRequestForm');
+    const requestTableBody = document.querySelector('#exchangeRequestTable tbody');
+    const requestMessage = document.getElementById('requestMessage');
+    const trackingBox = document.getElementById('requestTracking');
+
+    document.getElementById('showRequestForm').addEventListener('click', function () {
+      requestForm.hidden = false;
+      requestForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('hideRequestForm').addEventListener('click', function () {
+      requestForm.hidden = true;
+    });
+
+    requestForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const product = document.getElementById('requestProduct').value.trim();
+      const sku = document.getElementById('requestSku').value.trim();
+      const currentStock = Number(document.getElementById('requestCurrentStock').value);
+      const quantity = Number(document.getElementById('requestQuantity').value);
+      const requiredDate = document.getElementById('requestDate').value;
+
+      if (!product || !sku || currentStock < 0 || quantity < 1 || !requiredDate) {
+        requestMessage.className = 'request-message error';
+        requestMessage.textContent = 'Please enter valid product, stock, quantity and required-date details.';
+        return;
+      }
+
+      const requestId = 'EX-' + (1050 + requestTableBody.rows.length);
+      const safeProduct = document.createElement('div');
+      safeProduct.textContent = product;
+      const displayDate = new Date(requiredDate + 'T00:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      const row = document.createElement('tr');
+
+      row.innerHTML = '<td>' + requestId + '</td>' +
+        '<td>' + safeProduct.innerHTML + '</td>' +
+        '<td>' + quantity + '</td>' +
+        '<td>' + displayDate + '</td>' +
+        '<td>Not Assigned</td>' +
+        '<td><span class="status-badge status-review">Under Manufacturer Review</span></td>' +
+        '<td><button class="view-status" type="button">View Status</button></td>';
+
+      requestTableBody.prepend(row);
+      document.getElementById('openRequestCount').textContent = Number(document.getElementById('openRequestCount').textContent) + 1;
+      document.getElementById('awaitingApprovalCount').textContent = Number(document.getElementById('awaitingApprovalCount').textContent) + 1;
+      document.getElementById('exchangeRequestCount').textContent = Number(document.getElementById('exchangeRequestCount').textContent) + 1;
+
+      requestForm.reset();
+      requestMessage.className = 'request-message success';
+      requestMessage.textContent = requestId + ' submitted successfully. The manufacturer will review the request and assign an available distributor.';
+    });
+
+    document.getElementById('exchangeStatusFilter').addEventListener('change', function (event) {
+      const selectedStatus = event.target.value;
+      Array.from(requestTableBody.rows).forEach(function (row) {
+        row.hidden = selectedStatus !== 'All Statuses' && !row.textContent.includes(selectedStatus);
+      });
+    });
+
+    document.getElementById('exchangeRequestTable').addEventListener('click', function (event) {
+      const button = event.target.closest('.view-status');
+      if (!button) return;
+      const row = button.closest('tr');
+      document.getElementById('trackingTitle').textContent = row.cells[0].textContent + ' - ' + row.cells[1].textContent;
+      trackingBox.hidden = false;
+      trackingBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('hideTracking').addEventListener('click', function () {
+      trackingBox.hidden = true;
+    });
+  });
+</script>
+</body>
+</html>
